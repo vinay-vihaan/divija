@@ -28,6 +28,12 @@ export default function Header() {
           >
             Showcase
           </Link>
+           <Link
+            href="#testimonials"
+            className="text-foreground/60 transition-colors hover:text-foreground/80"
+          >
+            Testimonials
+          </Link>
         </nav>
       </div>
     </header>

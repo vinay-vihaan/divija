@@ -1,0 +1,72 @@
+import Image from "next/image";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
+
+const testimonials = [
+  {
+    name: "Sarah L.",
+    title: "Homeowner, Azure Heights",
+    image: "https://placehold.co/100x100.png",
+    hint: "portrait woman",
+    quote: "Working with EstateView was a dream. They were professional, attentive, and the quality of our new home is outstanding. We couldn't be happier!"
+  },
+  {
+    name: "Michael B.",
+    title: "Investor, The Grand Canal",
+    image: "https://placehold.co/100x100.png",
+    hint: "portrait man",
+    quote: "The team at EstateView is top-notch. Their market insight and commitment to quality make them a reliable partner for any real estate investment."
+  },
+  {
+    name: "Jessica P.",
+    title: "Resident, Veridian Villas",
+    image: "https://placehold.co/100x100.png",
+    hint: "portrait person",
+    quote: "From the moment we first inquired to the day we got our keys, the process was seamless. The amenities are fantastic and the community is wonderful."
+  }
+];
+
+export default function Testimonials() {
+  return (
+    <section id="testimonials" className="py-16 md:py-24">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-headline font-bold">What Our Clients Say</h2>
+          <p className="text-muted-foreground mt-2 max-w-2xl mx-auto">
+            Hear from our satisfied clients about their experience with EstateView.
+          </p>
+        </div>
+        <Carousel
+          opts={{
+            align: "start",
+            loop: true,
+          }}
+          className="w-full max-w-4xl mx-auto"
+        >
+          <CarouselContent>
+            {testimonials.map((testimonial, index) => (
+              <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                <div className="p-1">
+                  <Card className="h-full flex flex-col">
+                    <CardContent className="flex-grow flex flex-col items-center text-center p-6">
+                      <Avatar className="w-20 h-20 mb-4">
+                        <AvatarImage src={testimonial.image} alt={testimonial.name} data-ai-hint={testimonial.hint} />
+                        <AvatarFallback>{testimonial.name.charAt(0)}</AvatarFallback>
+                      </Avatar>
+                      <p className="text-muted-foreground italic mb-4">"{testimonial.quote}"</p>
+                      <p className="font-bold font-headline">{testimonial.name}</p>
+                      <p className="text-sm text-muted-foreground">{testimonial.title}</p>
+                    </CardContent>
+                  </Card>
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious />
+          <CarouselNext />
+        </Carousel>
+      </div>
+    </section>
+  );
+}

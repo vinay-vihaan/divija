@@ -54,7 +54,7 @@ export default function WhyChooseUs() {
             We provide the best quality services and amenities for your dream home.
           </p>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
           {features.map((feature, index) => (
             <Card key={index} className="text-center flex flex-col items-center justify-start p-4 hover:shadow-xl transition-shadow">
                 <CardHeader className="p-2">
