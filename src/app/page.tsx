@@ -4,6 +4,7 @@ import About from '@/components/about';
 import Projects from '@/components/projects';
 import Showcase from '@/components/showcase';
 import Stats from '@/components/stats';
+import WhyChooseUs from '@/components/why-choose-us';
 import WhatsAppButton from '@/components/whatsapp-button';
 import Footer from '@/components/footer';
 
@@ -16,6 +17,7 @@ export default function Home() {
         <About />
         <Projects />
         <Showcase />
+        <WhyChooseUs />
         <Stats />
       </main>
       <Footer />
