@@ -18,7 +18,7 @@ export default function Hero() {
           Your Vision, Our Foundation
         </h1>
         <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto text-shadow animate-fade-in-up">
-          We specialize in turning ambitious architectural dreams into tangible, luxurious realities. Discover the new standard of living with EstateView.
+          We specialize in turning ambitious architectural dreams into tangible, luxurious realities. Discover the new standard of living with Divija Developers.
         </p>
         <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 transition-transform hover:scale-105">
           Explore Projects

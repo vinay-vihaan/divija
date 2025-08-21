@@ -9,14 +9,14 @@ const testimonials = [
     title: "Homeowner, Azure Heights",
     image: "https://placehold.co/100x100.png",
     hint: "portrait woman",
-    quote: "Working with EstateView was a dream. They were professional, attentive, and the quality of our new home is outstanding. We couldn't be happier!"
+    quote: "Working with Divija Developers was a dream. They were professional, attentive, and the quality of our new home is outstanding. We couldn't be happier!"
   },
   {
     name: "Michael B.",
     title: "Investor, The Grand Canal",
     image: "https://placehold.co/100x100.png",
     hint: "portrait man",
-    quote: "The team at EstateView is top-notch. Their market insight and commitment to quality make them a reliable partner for any real estate investment."
+    quote: "The team at Divija Developers is top-notch. Their market insight and commitment to quality make them a reliable partner for any real estate investment."
   },
   {
     name: "Jessica P.",
@@ -34,7 +34,7 @@ export default function Testimonials() {
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-headline font-bold">What Our Clients Say</h2>
           <p className="text-muted-foreground mt-2 max-w-2xl mx-auto">
-            Hear from our satisfied clients about their experience with EstateView.
+            Hear from our satisfied clients about their experience with Divija Developers.
           </p>
         </div>
         <Carousel

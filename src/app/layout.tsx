@@ -3,7 +3,7 @@ import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
-  title: 'EstateView',
+  title: 'Divija Developers',
   description: 'Your vision, our foundation. Premier real estate projects.',
 };
 

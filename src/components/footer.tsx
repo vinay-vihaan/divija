@@ -10,7 +10,7 @@ export default function Footer() {
           <div className="md:col-span-1">
             <Link href="/" className="flex items-center space-x-2 mb-4">
               <Building2 className="h-8 w-8 text-primary" />
-              <span className="font-bold font-headline text-2xl text-primary">EstateView</span>
+              <span className="font-bold font-headline text-2xl text-primary">Divija Developers</span>
             </Link>
             <p className="text-muted-foreground text-sm max-w-xs">
               Building tomorrow's landmarks, today.
@@ -26,7 +26,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-8 pt-8 border-t text-center text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} EstateView. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Divija Developers. All rights reserved.</p>
         </div>
       </div>
     </footer>

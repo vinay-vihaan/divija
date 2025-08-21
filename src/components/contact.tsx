@@ -36,7 +36,7 @@ export default function Contact() {
             <div className="flex items-start gap-4">
               <Building2 className="h-6 w-6 text-primary mt-1"/>
               <div>
-                <p className="font-semibold">EstateView Headquarters</p>
+                <p className="font-semibold">Divija Developers Headquarters</p>
                 <p className="text-muted-foreground">123 Luxury Lane, Metropolis, 12345</p>
               </div>
             </div>
@@ -44,7 +44,7 @@ export default function Contact() {
               <Mail className="h-6 w-6 text-primary mt-1"/>
               <div>
                 <p className="font-semibold">Email Us</p>
-                <p className="text-muted-foreground">contact@estateview.com</p>
+                <p className="text-muted-foreground">contact@divijadevelopers.com</p>
               </div>
             </div>
              <div className="flex items-start gap-4">

@@ -9,7 +9,7 @@ export default function Header() {
         <div className="flex items-center flex-1">
           <Link href="/" className="mr-6 flex items-center space-x-2">
             <Building2 className="h-6 w-6 text-primary" />
-            <span className="font-bold font-headline text-lg text-primary">EstateView</span>
+            <span className="font-bold font-headline text-lg text-primary">Divija Developers</span>
           </Link>
           <nav className="flex items-center gap-4 text-sm lg:gap-6">
             <Link

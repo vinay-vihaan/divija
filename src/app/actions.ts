@@ -10,7 +10,7 @@ export async function getFooterSuggestions(prevState: any, formData: FormData) {
 
   try {
     const input: SuggestFooterResourcesInput = {
-      pageContent: "A real estate website for a company named EstateView. The company builds and sells luxury properties, including residential homes, apartments, and commercial buildings. The site showcases their portfolio, details about the company, and highlights their commitment to quality and modern design.",
+      pageContent: "A real estate website for a company named Divija Developers. The company builds and sells luxury properties, including residential homes, apartments, and commercial buildings. The site showcases their portfolio, details about the company, and highlights their commitment to quality and modern design.",
       visitorQuery: visitorQuery,
     };
     const result = await suggestFooterResources(input);
