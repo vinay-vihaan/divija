@@ -1,24 +1,29 @@
 import Image from "next/image";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import Link from "next/link";
 
 const projects = [
   {
     name: "Azure Heights",
+    slug: "/projects/azure-heights",
     image: "https://placehold.co/600x400.png",
     hint: "skyscraper building"
   },
   {
     name: "Veridian Villas",
+    slug: "#",
     image: "https://placehold.co/600x400.png",
     hint: "luxury villa"
   },
   {
     name: "The Grand Canal",
+    slug: "#",
     image: "https://placehold.co/600x400.png",
     hint: "waterfront property"
   },
     {
     name: "Solstice Towers",
+    slug: "#",
     image: "https://placehold.co/600x400.png",
     hint: "modern apartment"
   },
@@ -36,22 +41,24 @@ export default function Projects() {
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {projects.map((project, index) => (
-            <Card key={index} className="overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
-              <CardContent className="p-0">
-                <div className="relative aspect-[4/3]">
-                  <Image
-                    src={project.image}
-                    alt={project.name}
-                    data-ai-hint={project.hint}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-              </CardContent>
-              <CardHeader>
-                <CardTitle className="font-headline text-xl">{project.name}</CardTitle>
-              </CardHeader>
-            </Card>
+            <Link href={project.slug} key={index} className="group">
+              <Card className="overflow-hidden transition-all duration-300 group-hover:shadow-xl group-hover:-translate-y-2 h-full">
+                <CardContent className="p-0">
+                  <div className="relative aspect-[4/3]">
+                    <Image
+                      src={project.image}
+                      alt={project.name}
+                      data-ai-hint={project.hint}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                </CardContent>
+                <CardHeader>
+                  <CardTitle className="font-headline text-xl">{project.name}</CardTitle>
+                </CardHeader>
+              </Card>
+            </Link>
           ))}
         </div>
       </div>
