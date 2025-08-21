@@ -8,6 +8,7 @@ import WhyChooseUs from '@/components/why-choose-us';
 import Testimonials from '@/components/testimonials';
 import WhatsAppButton from '@/components/whatsapp-button';
 import Footer from '@/components/footer';
+import Contact from '@/components/contact';
 
 export default function Home() {
   return (
@@ -21,6 +22,7 @@ export default function Home() {
         <WhyChooseUs />
         <Testimonials />
         <Stats />
+        <Contact />
       </main>
       <Footer />
       <WhatsAppButton />
