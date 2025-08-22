@@ -34,12 +34,12 @@ const projectDetails = {
     'Sustainable and eco-friendly construction',
   ],
   amenities: [
-    { icon: <Home className="h-8 w-8 text-primary" />, name: 'Rooftop Infinity Pool' },
-    { icon: <Sun className="h-8 w-8 text-primary" />, name: 'Fully Equipped Gym' },
-    { icon: <Wind className="h-8 w-8 text-primary" />, name: 'Landscaped Gardens' },
-    { icon: <Droplets className="h-8 w-8 text-primary" />, name: 'Spa and Wellness Center' },
-    { icon: <Trees className="h-8 w-8 text-primary" />, name: "Children's Play Area" },
-    { icon: <Car className="h-8 w-8 text-primary" />, name: 'Multi-level Parking' },
+    { image: 'https://placehold.co/150x150.png', hint: 'infinity pool', name: 'Rooftop Infinity Pool' },
+    { image: 'https://placehold.co/150x150.png', hint: 'modern gym', name: 'Fully Equipped Gym' },
+    { image: 'https://placehold.co/150x150.png', hint: 'zen garden', name: 'Landscaped Gardens' },
+    { image: 'https://placehold.co/150x150.png', hint: 'spa wellness', name: 'Spa and Wellness Center' },
+    { image: 'https://placehold.co/150x150.png', hint: 'kids playground', name: "Children's Play Area" },
+    { image: 'https://placehold.co/150x150.png', hint: 'parking garage', name: 'Multi-level Parking' },
   ],
   locationHighlights: [
     { icon: <Plane className="h-6 w-6 text-primary" />, name: 'International Airport - 20 mins' },
@@ -97,9 +97,17 @@ export default function AzureHeightsPage() {
                 </h2>
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 text-center">
                   {projectDetails.amenities.map((amenity, index) => (
-                    <div key={index} className="flex flex-col items-center">
-                      <div className="mb-3">{amenity.icon}</div>
-                      <p className="font-semibold">{amenity.name}</p>
+                    <div key={index} className="flex flex-col items-center group">
+                      <div className="relative w-full aspect-square mb-3 rounded-lg overflow-hidden shadow-lg">
+                        <Image
+                          src={amenity.image}
+                          alt={amenity.name}
+                          fill
+                          className="object-cover transition-transform duration-300 group-hover:scale-110"
+                          data-ai-hint={amenity.hint}
+                        />
+                      </div>
+                      <p className="font-semibold mt-2">{amenity.name}</p>
                     </div>
                   ))}
                 </div>
