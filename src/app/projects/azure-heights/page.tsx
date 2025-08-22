@@ -21,11 +21,18 @@ import Footer from '@/components/footer';
 import StickyForm from '@/components/sticky-form';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 
 const projectDetails = {
   title: 'Azure Heights',
   overview:
     'Azure Heights is a landmark of luxury living, offering breathtaking views and unparalleled amenities. This residential masterpiece is designed for those who seek an extraordinary lifestyle, combining modern architecture with sophisticated interiors. Each residence is a sanctuary of comfort and elegance, crafted with the finest materials and attention to detail. Experience the pinnacle of urban living at Azure Heights.',
+  gallery: [
+    { image: 'https://placehold.co/800x600.png', hint: 'modern apartment living room', alt: 'Modern living room with city view' },
+    { image: 'https://placehold.co/800x600.png', hint: 'luxury kitchen', alt: 'Luxury kitchen with high-end appliances' },
+    { image: 'https://placehold.co/800x600.png', hint: 'bedroom city view', alt: 'Spacious bedroom with a panoramic city view' },
+    { image: 'https://placehold.co/800x600.png', hint: 'sleek bathroom', alt: 'Sleek and modern bathroom design' },
+  ],
   highlights: [
     'Ultra-modern apartments with panoramic city views',
     'Designed by world-renowned architects',
@@ -68,7 +75,32 @@ export default function AzureHeightsPage() {
                 <h2 className="text-3xl font-headline font-semibold mb-4 flex items-center gap-3">
                   <Building className="h-8 w-8" /> Overview
                 </h2>
-                <p className="text-muted-foreground leading-relaxed">{projectDetails.overview}</p>
+                <p className="text-muted-foreground leading-relaxed mb-8">{projectDetails.overview}</p>
+                <Carousel
+                  className="w-full"
+                  opts={{
+                    align: "start",
+                    loop: true,
+                  }}
+                >
+                  <CarouselContent>
+                    {projectDetails.gallery.map((item, index) => (
+                      <CarouselItem key={index}>
+                        <div className="relative aspect-video rounded-lg overflow-hidden">
+                          <Image
+                            src={item.image}
+                            alt={item.alt}
+                            fill
+                            className="object-cover"
+                            data-ai-hint={item.hint}
+                          />
+                        </div>
+                      </CarouselItem>
+                    ))}
+                  </CarouselContent>
+                  <CarouselPrevious className="ml-16" />
+                  <CarouselNext className="mr-16" />
+                </Carousel>
               </section>
 
               <Separator />
