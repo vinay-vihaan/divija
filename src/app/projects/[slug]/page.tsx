@@ -44,15 +44,15 @@ function getLocationIcon(name: string): React.ReactNode {
 }
 
 export default async function ProjectPage({ params }: ProjectPageParams) {
-  const project: Project | null = await getProjectBySlug(params.slug);
+   const { slug } = await params;
+  const project: Project | null = await getProjectBySlug(slug);
 
   if (!project) {
     notFound();
-  }
+  } 
 
   const { title, content, acf } = project;
 
-  console.log("projects", project)
 
   return (
     <div className="flex flex-col min-h-screen bg-background">
@@ -71,7 +71,7 @@ export default async function ProjectPage({ params }: ProjectPageParams) {
                 </h2>
                 <div className="text-muted-foreground leading-relaxed mb-8" dangerouslySetInnerHTML={{ __html: content.rendered }} />
 
-                {acf.gallery_images && acf.gallery_images.length > 0 && (
+                {/* {acf.gallery_images && acf.gallery_images.length > 0 && (
                   <Carousel className="w-full" opts={{ align: "start", loop: true }}>
                     <CarouselContent>
                       {acf.gallery_images.map((item, index) => (
@@ -81,7 +81,28 @@ export default async function ProjectPage({ params }: ProjectPageParams) {
                               src={item.add_image || "https://placehold.co/800x600.png"}
                               alt={item.add_image ? `Gallery image for ${title.rendered}` : 'Placeholder image'}
                               fill
-                              className="object-cover"
+                              className="object-fit"
+                              data-ai-hint="modern apartment building"
+                            />
+                          </div>
+                        </CarouselItem>
+                      ))}
+                    </CarouselContent>
+                    <CarouselPrevious className="ml-16" />
+                    <CarouselNext className="mr-16" />
+                  </Carousel>
+                )} */}
+                    {acf.gallery_images && acf.gallery_images.length > 0 && (
+                  <Carousel className="w-full" opts={{ align: "start", loop: true }}>
+                    <CarouselContent>
+                      {acf.gallery_images.map((item, index) => (
+                        <CarouselItem key={index} className='sm:basis-1/2 md:basis-1/3 lg:basis-1/3'>
+                          <div className="relative aspect-video rounded-lg overflow-hidden">
+                            <Image
+                              src={item.add_image || "https://placehold.co/800x600.png"}
+                              alt={item.add_image ? `Gallery image for ${title.rendered}` : 'Placeholder image'}
+                              fill
+                              className="object-fit"
                               data-ai-hint="modern apartment building"
                             />
                           </div>
@@ -127,7 +148,7 @@ export default async function ProjectPage({ params }: ProjectPageParams) {
                             src={amenity.add_image || "https://placehold.co/150x150.png"}
                             alt={amenity.add_item}
                             fill
-                            className="object-cover transition-transform duration-300 group-hover:scale-110"
+                            className="object-fit transition-transform duration-300 group-hover:scale-110"
                             data-ai-hint="luxury amenity"
                           />
                         </div>
