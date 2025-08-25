@@ -9,7 +9,8 @@ import Testimonials from '@/components/testimonials';
 import WhatsAppButton from '@/components/whatsapp-button';
 import Footer from '@/components/footer';
 import Contact from '@/components/contact';
-import { getProjects } from '@/lib/wordpress';
+import { getProjects } from '@/lib/api';
+
 
 export default async function Home() {
   const projects = await getProjects();
