@@ -9,15 +9,18 @@ import Testimonials from '@/components/testimonials';
 import WhatsAppButton from '@/components/whatsapp-button';
 import Footer from '@/components/footer';
 import Contact from '@/components/contact';
+import { getProjects } from '@/lib/wordpress';
 
-export default function Home() {
+export default async function Home() {
+  const projects = await getProjects();
+
   return (
     <div className="flex flex-col min-h-screen bg-background">
       <Header />
       <main className="flex-grow">
         <Hero />
         <About />
-        <Projects />
+        <Projects projects={projects} />
         <Showcase />
         <WhyChooseUs />
         <Testimonials />
