@@ -1,68 +1,60 @@
-import { Project } from './types';
+import type {Project} from './types';
 
-const placeholderProjects: Project[] = [
-  {
-    id: 1,
-    slug: 'azure-heights',
-    title: { rendered: 'Azure Heights' },
-    content: { rendered: '<p>Azure Heights is a landmark of luxury living...</p>' },
-    acf: {
-      gallery_images: [{ add_image: 'https://placehold.co/600x400.png' }],
-      project_highlights: [{ add_item: 'Ultra-modern apartments' }],
-      amenities: [{ add_item: 'Rooftop Infinity Pool', add_image: 'https://placehold.co/150x150.png' }],
-      location_highlights: [{ add_item: 'International Airport - 20 mins' }],
-      location_map: {},
-      google_map: '',
-    },
-  },
-  {
-    id: 2,
-    slug: 'veridian-villas',
-    title: { rendered: 'Veridian Villas' },
-    content: { rendered: '<p>A serene enclave of modern villas...</p>' },
-    acf: {
-      gallery_images: [{ add_image: 'https://placehold.co/600x400.png' }],
-      project_highlights: [{ add_item: 'Spacious and green' }],
-      amenities: [{ add_item: 'Private Gardens', add_image: 'https://placehold.co/150x150.png' }],
-      location_highlights: [{ add_item: 'City Center - 15 mins' }],
-      location_map: {},
-      google_map: '',
-    },
-  },
-  {
-    id: 3,
-    slug: 'solstice-towers',
-    title: { rendered: 'Solstice Towers' },
-    content: { rendered: '<p>Iconic towers that touch the sky...</p>' },
-    acf: {
-      gallery_images: [{ add_image: 'https://placehold.co/600x400.png' }],
-      project_highlights: [{ add_item: 'Panoramic city views' }],
-      amenities: [{ add_item: 'Sky Lounge', add_image: 'https://placehold.co/150x150.png' }],
-      location_highlights: [{ add_item: 'Financial District - 5 mins' }],
-      location_map: {},
-      google_map: '',
-    },
-  },
-  {
-    id: 4,
-    slug: 'the-grand-canal',
-    title: { rendered: 'The Grand Canal' },
-    content: { rendered: '<p>Waterfront living at its finest...</p>' },
-    acf: {
-      gallery_images: [{ add_image: 'https://placehold.co/600x400.png' }],
-      project_highlights: [{ add_item: 'Venetian-inspired architecture' }],
-      amenities: [{ add_item: 'Gondola Rides', add_image: 'https://placehold.co/150x150.png' }],
-      location_highlights: [{ add_item: 'Marina - 2 mins' }],
-      location_map: {},
-      google_map: '',
-    },
-  },
-];
+const API_URL =
+  process.env.WORDPRESS_API_URL || 'https://divija.vihaandigitals.com/wp-json/wp/v2';
+
+async function fetchAPI(query = '', variables = {}) {
+  const headers: HeadersInit = {
+    'Content-Type': 'application/json',
+    'User-Agent':
+      'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3',
+    Accept:
+      'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+    'Accept-Language': 'en-US,en;q=0.5',
+    'Accept-Encoding': 'gzip, deflate, br',
+    Connection: 'keep-alive',
+    'Upgrade-Insecure-Requests': '1',
+    'Cache-Control': 'max-age=0',
+  };
+
+  const res = await fetch(`${API_URL}/${query}`, {
+    method: 'GET',
+    headers,
+    next: {revalidate: 0},
+  });
+
+  if (!res.ok) {
+    const errorText = await res.text();
+    console.error(
+      `Failed to fetch API. Status: ${res.status}. Response: ${errorText}`
+    );
+    // Return empty array to prevent crash, since the server is blocking the request
+    return [];
+  }
+
+  const json = await res.json();
+  return json;
+}
 
 export async function getProjects(): Promise<Project[]> {
-  return placeholderProjects;
+  try {
+    const data = await fetchAPI('project?_fields=id,slug,title,acf,featured_media_src_url');
+    return data || [];
+  } catch (error) {
+    console.error('Error fetching projects:', error);
+    return [];
+  }
 }
 
 export async function getProjectBySlug(slug: string): Promise<Project | null> {
-  return placeholderProjects.find(p => p.slug === slug) || null;
+  try {
+    const data = await fetchAPI(`project?slug=${slug}&_fields=id,slug,title,content,acf`);
+    if (data && data.length > 0) {
+      return data[0];
+    }
+    return null;
+  } catch (error) {
+    console.error(`Error fetching project by slug: ${slug}`, error);
+    return null;
+  }
 }
