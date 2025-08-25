@@ -46,15 +46,30 @@ export async function getProjects(): Promise<Project[]> {
   }
 }
 
+// export async function getProjectBySlug(slug: string): Promise<Project | null> {
+//   try {
+//     const data = await fetchAPI(`project?slug=${slug}&_fields=id,slug,title,content,acf`);
+//     if (data && data.length > 0) {
+//       return data[0];
+//     }
+//     return null;
+//   } catch (error) {
+//     console.error(`Error fetching project by slug: ${slug}`, error);
+//     return null;
+//   }
+// }
+
 export async function getProjectBySlug(slug: string): Promise<Project | null> {
-  try {
-    const data = await fetchAPI(`project?slug=${slug}&_fields=id,slug,title,content,acf`);
-    if (data && data.length > 0) {
-      return data[0];
-    }
-    return null;
-  } catch (error) {
-    console.error(`Error fetching project by slug: ${slug}`, error);
-    return null;
-  }
+  const res = await fetch(
+    `https://divija.vihaandigitals.com/wp-json/wp/v2/project?slug=${encodeURIComponent(
+      slug
+    )}&acf_format=standard`,
+    { next: { revalidate: 60 } } // ISR 1 min
+  );
+
+  if (!res.ok) return null;
+
+  const data: Project[] = await res.json();
+  return data.length > 0 ? data[0] : null;
 }
+
