@@ -9,7 +9,6 @@ type ProjectsProps = {
 
 export default function Projects({ projects }: ProjectsProps) {
 
-  console.log("projects", projects)
   return (
     <section id="projects" className="py-16 md:py-24">
       <div className="container mx-auto px-4">
@@ -30,7 +29,7 @@ export default function Projects({ projects }: ProjectsProps) {
                       alt={project.title.rendered}
                       data-ai-hint="skyscraper building"
                       fill
-                      className="object-cover"
+                      className="object-fit"
                     />
                   </div>
                 </CardContent>

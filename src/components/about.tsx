@@ -6,9 +6,9 @@ export default function About() {
     <section id="about" className="py-16 md:py-24 bg-secondary">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
-          <div className="relative aspect-square">
+          <div className="relative w-[100%] h-[500px]">
             <Image
-              src="https://placehold.co/600x600.png"
+              src="https://divija.vihaandigitals.com/wp-content/uploads/2025/08/Amenities8.png"
               alt="A modern office interior"
               data-ai-hint="real estate office"
               fill

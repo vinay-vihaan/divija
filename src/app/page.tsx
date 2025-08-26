@@ -1,7 +1,7 @@
 import Header from '@/components/header';
 import Hero from '@/components/hero';
 import About from '@/components/about';
-import Projects from '@/components/projects';
+// import Projects from '@/components/projects';
 import Showcase from '@/components/showcase';
 import Stats from '@/components/stats';
 import WhyChooseUs from '@/components/why-choose-us';
@@ -21,8 +21,8 @@ export default async function Home() {
       <main className="flex-grow">
         <Hero />
         <About />
-        <Projects projects={projects} />
-        <Showcase />
+        {/* <Projects projects={projects} /> */}
+        <Showcase projects={projects} />
         <WhyChooseUs />
         <Testimonials />
         <Stats />
