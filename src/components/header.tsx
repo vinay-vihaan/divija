@@ -8,10 +8,10 @@ export default function Header() {
     <header className="sticky top-0 z-50 w-full flex justify-center border-b border-border/40 bg-secondary ">
       <div className="container flex  max-w-screen-2xl items-center">
         <div className="flex justify-between items-center flex-1">
-          <Link href="/" className="mr-6 flex items-center space-x-2">
+          <Link href="/" className="mr-6 flex items-center space-x-2 py-4">
             {/* <Building2 className="h-6 w-6 text-primary" />
             <span className="font-bold font-headline text-lg text-primary">Divija Developers</span> */}
-            <Image src={"https://divija.vihaandigitals.com/wp-content/uploads/2025/08/Screenshot-2025-08-22-at-12.29.36-PM.png"} alt="logo" sizes="100vw" width={100} height={100}/>
+            <Image src={"https://divija.vihaandigitals.com/wp-content/uploads/2025/08/divija-logo1-removebg-preview.png"} alt="logo" sizes="100vw" width={180} height={150}/>
           </Link>
           <nav className="flex items-center gap-4 font-medium lg:gap-6">
             <Link
