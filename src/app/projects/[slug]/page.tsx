@@ -44,12 +44,12 @@ function getLocationIcon(name: string): React.ReactNode {
 }
 
 export default async function ProjectPage({ params }: ProjectPageParams) {
-   const { slug } = await params;
+  const { slug } = await params;
   const project: Project | null = await getProjectBySlug(slug);
 
   if (!project) {
     notFound();
-  } 
+  }
 
   const { title, content, acf } = project;
 
@@ -57,13 +57,40 @@ export default async function ProjectPage({ params }: ProjectPageParams) {
   return (
     <div className="flex flex-col min-h-screen bg-background">
       <Header />
-      <main className="flex-grow py-12 md:py-20">
+      <main className="flex-grow pb-4 md:pb-20">
+
+        {/* <section className="relative w-full h-64 bg-center bg-cover rounded-lg"
+          style={{ backgroundImage: `url(${project.acf?.gallery_images?.[0]?.add_image || '/placeholder.png'})` }}>
+          <div className='container'>
+
+          </div>
+        </section> */}
+        <div
+                className="relative w-full min-h-[350px] overflow-hidden flex flex-col items-center justify-center text-center group mb-20"
+              >
+                {/* Background Image */}
+                <img
+                  src={project.acf?.gallery_images?.[0]?.add_image || "/placeholder.png"}
+                  alt={project.title?.rendered}
+                  className="absolute inset-0 w-full h-full object-fill"
+                />
+
+                {/* Dark overlay */}
+                <div className="absolute inset-0 bg-black/40"></div>
+
+                {/* Content */}
+                <h2 className="relative text-white text-4xl font-semibold p-4">
+                  {project.title?.rendered}
+                </h2>
+                <p className="text-white/90 text-lg mt-2 transition-opacity opacity-90">{project.acf?.sub_title}</p>
+              </div>
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
             <div className="lg:col-span-2 space-y-12">
-              <div className="text-center lg:text-left">
+              {/* <div className="text-center lg:text-left">
                 <h1 className="text-4xl md:text-5xl font-headline font-bold text-primary">{title.rendered}</h1>
-              </div>
+              </div> */}
+
 
               <section id="overview">
                 <h2 className="text-3xl font-headline font-semibold mb-4 flex items-center gap-3">
@@ -92,7 +119,7 @@ export default async function ProjectPage({ params }: ProjectPageParams) {
                     <CarouselNext className="mr-16" />
                   </Carousel>
                 )} */}
-                    {acf.gallery_images && acf.gallery_images.length > 0 && (
+                {acf.gallery_images && acf.gallery_images.length > 0 && (
                   <Carousel className="w-full" opts={{ align: "start", loop: true }}>
                     <CarouselContent>
                       {acf.gallery_images.map((item, index) => (

@@ -24,7 +24,14 @@ const testimonials = [
     image: "https://placehold.co/100x100.png",
     hint: "portrait person",
     quote: "From the moment we first inquired to the day we got our keys, the process was seamless. The amenities are fantastic and the community is wonderful."
-  }
+  },
+   {
+    name: "Michael B.",
+    title: "Investor, The Grand Canal",
+    image: "https://placehold.co/100x100.png",
+    hint: "portrait man",
+    quote: "The team at Divija Developers is top-notch. Their market insight and commitment to quality make them a reliable partner for any real estate investment."
+  },
 ];
 
 export default function Testimonials() {
@@ -47,9 +54,9 @@ export default function Testimonials() {
           <CarouselContent>
             {testimonials.map((testimonial, index) => (
               <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                <div className="p-1">
+                <div className="p-1 h-full">
                   <Card className="h-full flex flex-col">
-                    <CardContent className="flex-grow flex flex-col items-center text-center p-6">
+                    <CardContent className="flex-grow flex flex-col items-center text-center p-6 ">
                       <Avatar className="w-20 h-20 mb-4">
                         <AvatarImage src={testimonial.image} alt={testimonial.name} data-ai-hint={testimonial.hint} />
                         <AvatarFallback>{testimonial.name.charAt(0)}</AvatarFallback>

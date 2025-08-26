@@ -14,6 +14,7 @@ export interface Project {
     location_highlights: { add_item: string }[];
     location_map: any;
     google_map: string;
+    sub_title: string;
   };
   featured_media_src_url?: string;
 _embedded?: {

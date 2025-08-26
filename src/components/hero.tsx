@@ -5,7 +5,7 @@ export default function Hero() {
   return (
     <section className="relative h-[60vh] md:h-[80vh] w-full flex items-center justify-center text-white">
       <Image
-        src="https://placehold.co/1920x1080.png"
+        src="https://divija.vihaandigitals.com/wp-content/uploads/2025/08/ananda-1.png"
         alt="Modern building exterior"
         data-ai-hint="modern architecture"
         fill
