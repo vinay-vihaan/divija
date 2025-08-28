@@ -5,29 +5,29 @@ import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 
 const testimonials = [
   {
-    name: "Sarah L.",
-    title: "Homeowner, Azure Heights",
-    image: "https://placehold.co/100x100.png",
+    name: "Rajesham L.",
+    title: "Plotowner, Hill City",
+    image: "https://divija.vihaandigitals.com/wp-content/uploads/2025/08/client-1.png",
     hint: "portrait woman",
     quote: "Working with Divija Developers was a dream. They were professional, attentive, and the quality of our new home is outstanding. We couldn't be happier!"
   },
   {
-    name: "Michael B.",
-    title: "Investor, The Grand Canal",
-    image: "https://placehold.co/100x100.png",
+    name: "Kiran B.",
+    title: "Investor, Pearl City",
+    image: "https://divija.vihaandigitals.com/wp-content/uploads/2025/08/client-2.png",
     hint: "portrait man",
     quote: "The team at Divija Developers is top-notch. Their market insight and commitment to quality make them a reliable partner for any real estate investment."
   },
   {
-    name: "Jessica P.",
-    title: "Resident, Veridian Villas",
-    image: "https://placehold.co/100x100.png",
+    name: "Akash PV",
+    title: "Owner, Anand Plots",
+    image: "https://divija.vihaandigitals.com/wp-content/uploads/2025/08/client-3.png",
     hint: "portrait person",
     quote: "From the moment we first inquired to the day we got our keys, the process was seamless. The amenities are fantastic and the community is wonderful."
   },
    {
     name: "Michael B.",
-    title: "Investor, The Grand Canal",
+    title: "Investor, Hill City",
     image: "https://placehold.co/100x100.png",
     hint: "portrait man",
     quote: "The team at Divija Developers is top-notch. Their market insight and commitment to quality make them a reliable partner for any real estate investment."
