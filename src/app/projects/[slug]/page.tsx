@@ -1,19 +1,20 @@
 import Image from 'next/image';
 import {
-  Building,
   MapPin,
-  CheckCircle,
-  Home,
+  Route,
+  TrendingUp,
+  Building2,
+  BriefcaseBusiness,
+  GraduationCap,
+  Hospital,
+  Landmark,
   Plane,
   Train,
   School,
-  Hospital,
   ShoppingBag,
-} from 'lucide-react';
+  CheckCircle,
+} from "lucide-react";
 import { notFound } from 'next/navigation';
-
-import Header from '@/components/header';
-import Footer from '@/components/footer';
 import StickyForm from '@/components/sticky-form';
 import { Separator } from '@/components/ui/separator';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
@@ -26,21 +27,31 @@ type ProjectPageParams = {
   };
 };
 
-console.log("json",)
-
-// Helper function to create icon components from a string
+// Icon dictionary
 const iconComponents: { [key: string]: React.ReactNode } = {
+  road: <Route className="h-6 w-6 text-primary" />,
+  corridor: <TrendingUp className="h-6 w-6 text-primary" />,
+  it: <Building2 className="h-6 w-6 text-primary" />,
+  business: <BriefcaseBusiness className="h-6 w-6 text-primary" />,
+  school: <GraduationCap className="h-6 w-6 text-primary" />,
+  university: <GraduationCap className="h-6 w-6 text-primary" />,
+  hospital: <Hospital className="h-6 w-6 text-primary" />,
+  government: <Hospital className="h-6 w-6 text-primary" />, // optional
+  tourist: <Landmark className="h-6 w-6 text-primary" />,
   plane: <Plane className="h-6 w-6 text-primary" />,
   train: <Train className="h-6 w-6 text-primary" />,
-  school: <School className="h-6 w-6 text-primary" />,
-  hospital: <Hospital className="h-6 w-6 text-primary" />,
   shopping: <ShoppingBag className="h-6 w-6 text-primary" />,
 };
 
+// Match icon by keyword
 function getLocationIcon(name: string): React.ReactNode {
   const lowerCaseName = name.toLowerCase();
-  const iconKey = Object.keys(iconComponents).find(key => lowerCaseName.includes(key));
-  return iconKey ? iconComponents[iconKey] : <MapPin className="h-6 w-6 text-primary" />;
+  const iconKey = Object.keys(iconComponents).find((key) =>
+    lowerCaseName.includes(key)
+  );
+  return iconKey
+    ? iconComponents[iconKey]
+    : <MapPin className="h-6 w-6 text-primary" />;
 }
 
 export default async function ProjectPage({ params }: ProjectPageParams) {
@@ -56,69 +67,62 @@ export default async function ProjectPage({ params }: ProjectPageParams) {
 
   return (
     <div className="flex flex-col min-h-screen bg-background">
-      <Header />
+      {/* <Header /> */}
       <main className="flex-grow pb-4 md:pb-20">
-
-        {/* <section className="relative w-full h-64 bg-center bg-cover rounded-lg"
-          style={{ backgroundImage: `url(${project.acf?.gallery_images?.[0]?.add_image || '/placeholder.png'})` }}>
-          <div className='container'>
-
-          </div>
-        </section> */}
-        <div
-                className="relative w-full min-h-[350px] overflow-hidden flex flex-col items-center justify-center text-center group mb-20"
-              >
-                {/* Background Image */}
-                <img
-                  src={project.acf?.gallery_images?.[0]?.add_image || "/placeholder.png"}
-                  alt={project.title?.rendered}
-                  className="absolute inset-0 w-full h-full object-fill"
-                />
-
-                {/* Dark overlay */}
-                <div className="absolute inset-0 bg-black/40"></div>
-
-                {/* Content */}
-                <h2 className="relative text-white text-4xl font-semibold p-4">
-                  {project.title?.rendered}
-                </h2>
-                <p className="text-white/90 text-lg mt-2 transition-opacity opacity-90">{project.acf?.sub_title}</p>
+        <div className="relative w-full min-h-[450px] overflow-hidden flex items-center justify-center text-center group mb-20">
+          <img
+            src={project.acf?.gallery_images?.[0]?.add_image || "/placeholder.png"}
+            alt={project.title?.rendered}
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black/40"></div>
+          <div className="absolute top-0 bottom-0 left-0 w-full bg-black/50 backdrop-blur-sm flex justify-center">
+            <div className="container p-6 flex flex-col  items-center justify-center gap-6">
+              <div className="flex items-center gap-4 mt-20">
+                <div className="text-cenetr">
+                  <p className="text-orange-400 text-md flex items-center justify-center gap-2">
+                    <span className="inline-block w-2 h-2 bg-orange-400 rounded-full"></span>
+                    {project.acf?.site_location || "Location"}
+                  </p>
+                  <h3 className="text-white text-4xl font-semibold my-2">
+                    {project.title?.rendered}
+                  </h3>
+                  <p className="text-white/80 text-md">
+                    {project.acf?.sub_title || "18 Acres HMDA Villa Plots."}
+                  </p>
+                </div>
               </div>
+
+              <div className=" flex items-center mt-10 bg-[#181826]/80 rounded-lg  p-4">
+                <div className="w-[180px] h-full">
+                  <img
+                    src={project.acf?.rera_logo || "https://divija.vihaandigitals.com/wp-content/uploads/2025/08/rera-logo-Copy.png"}
+                    alt="RERA Logo"
+                    className="w-full h-auto rounded-lg"
+                  />
+                </div>
+                <div className="text-left p-4">
+                  <p className="text-white text-md mb-2">
+                    TS RERA: {project.acf?.rera_number || "P02400005008"}
+                  </p>
+                  <p className="text-white text-md">
+                    TLP No.: {project.acf?.rera_lp_number || "000224/LO/Plg/HMDA/2022"}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
             <div className="lg:col-span-2 space-y-12">
-              {/* <div className="text-center lg:text-left">
-                <h1 className="text-4xl md:text-5xl font-headline font-bold text-primary">{title.rendered}</h1>
-              </div> */}
-
-
               <section id="overview">
                 <h2 className="text-3xl font-headline font-semibold mb-4 flex items-center gap-3">
-                  <Building className="h-8 w-8" /> Overview
+                  {/* <Building className="h-8 w-8" /> */}
+                  Overview
                 </h2>
                 <div className="text-muted-foreground leading-relaxed mb-8" dangerouslySetInnerHTML={{ __html: content.rendered }} />
-
-                {/* {acf.gallery_images && acf.gallery_images.length > 0 && (
-                  <Carousel className="w-full" opts={{ align: "start", loop: true }}>
-                    <CarouselContent>
-                      {acf.gallery_images.map((item, index) => (
-                        <CarouselItem key={index}>
-                          <div className="relative aspect-video rounded-lg overflow-hidden">
-                            <Image
-                              src={item.add_image || "https://placehold.co/800x600.png"}
-                              alt={item.add_image ? `Gallery image for ${title.rendered}` : 'Placeholder image'}
-                              fill
-                              className="object-fit"
-                              data-ai-hint="modern apartment building"
-                            />
-                          </div>
-                        </CarouselItem>
-                      ))}
-                    </CarouselContent>
-                    <CarouselPrevious className="ml-16" />
-                    <CarouselNext className="mr-16" />
-                  </Carousel>
-                )} */}
                 {acf.gallery_images && acf.gallery_images.length > 0 && (
                   <Carousel className="w-full" opts={{ align: "start", loop: true }}>
                     <CarouselContent>
@@ -147,9 +151,9 @@ export default async function ProjectPage({ params }: ProjectPageParams) {
               {acf.project_highlights && acf.project_highlights.length > 0 && (
                 <section id="highlights">
                   <h2 className="text-3xl font-headline font-semibold mb-6 flex items-center gap-3">
-                    <CheckCircle className="h-8 w-8" /> Project Highlights
+                    Project Highlights
                   </h2>
-                  <ul className="space-y-3">
+                  <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3">
                     {acf.project_highlights.map((highlight, index) => (
                       <li key={index} className="flex items-start gap-3">
                         <CheckCircle className="h-5 w-5 text-green-500 mt-1 flex-shrink-0" />
@@ -165,7 +169,8 @@ export default async function ProjectPage({ params }: ProjectPageParams) {
               {acf.amenities && acf.amenities.length > 0 && (
                 <section id="amenities">
                   <h2 className="text-3xl font-headline font-semibold mb-8 flex items-center gap-3">
-                    <Home className="h-8 w-8" /> Amenities
+                    {/* <Home className="h-8 w-8" />  */}
+                    Amenities
                   </h2>
                   <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 text-center">
                     {acf.amenities.map((amenity, index) => (
@@ -191,11 +196,12 @@ export default async function ProjectPage({ params }: ProjectPageParams) {
               {acf.location_highlights && acf.location_highlights.length > 0 && (
                 <section id="location-highlights">
                   <h2 className="text-3xl font-headline font-semibold mb-6 flex items-center gap-3">
-                    <MapPin className="h-8 w-8" /> Location Highlights
+                    {/* <MapPin className="h-8 w-8" /> */}
+                    Location Highlights
                   </h2>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-1">
                     {acf.location_highlights.map((item, index) => (
-                      <div key={index} className="flex items-center gap-4 p-3 rounded-lg">
+                      <div key={index} className="flex items-center gap-4 px-3 py-2 rounded-lg">
                         {getLocationIcon(item.add_item)}
                         <p className="text-muted-foreground">{item.add_item}</p>
                       </div>
@@ -204,31 +210,13 @@ export default async function ProjectPage({ params }: ProjectPageParams) {
                 </section>
               )}
 
+              
+
               <Separator />
 
-              {/* {acf.google_map && (
-                <section id="location-map">
-                  <h2 className="text-3xl font-headline font-semibold mb-6">Location Map</h2>
-                  <div className="aspect-video rounded-lg overflow-hidden border">
-                       <Image
-                              src={acf.location_map || "https://placehold.co/800x600.png"}
-                              alt={title.rendered }
-                              fill
-                              className="object-cover"
-                              data-ai-hint="lcation map"
-                              sizes='100vw'
-                            />
-                    <div
-                      className="aspect-video rounded-lg overflow-hidden border"
-                      dangerouslySetInnerHTML={{ __html: acf.google_map }}
-                    />
-                  </div>
-                </section>
-              )} */}
               {(acf.google_map || acf.location_map) && (
                 <section id="location-map">
                   <h2 className="text-3xl font-headline font-semibold mb-6">Location Map</h2>
-
                   {/* Location Image */}
                   {acf.location_map && (
                     <div className="aspect-video rounded-lg rounded-bl-none rounded-br-none overflow-hidden relative border-t border-r border-l ">
@@ -254,7 +242,6 @@ export default async function ProjectPage({ params }: ProjectPageParams) {
               )}
 
             </div>
-            {/* https://maps.app.goo.gl/JFsu9xVLXD41ppE88 */}
 
             <div className="hidden lg:block">
               <StickyForm />
@@ -262,7 +249,6 @@ export default async function ProjectPage({ params }: ProjectPageParams) {
           </div>
         </div>
       </main>
-      <Footer />
     </div>
   );
 }

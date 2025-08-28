@@ -15,6 +15,10 @@ export interface Project {
     location_map: any;
     google_map: string;
     sub_title: string;
+    site_location: string;
+    rera_logo: string;
+    rera_number: string;
+    rera_lp_number: string;
   };
   featured_media_src_url?: string;
 _embedded?: {

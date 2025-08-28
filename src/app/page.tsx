@@ -10,6 +10,7 @@ import WhatsAppButton from '@/components/whatsapp-button';
 import Footer from '@/components/footer';
 import Contact from '@/components/contact';
 import { getProjects } from '@/lib/api';
+import Projects from '@/components/projects';
 
 
 export default async function Home() {
@@ -17,18 +18,18 @@ export default async function Home() {
 
   return (
     <div className="flex flex-col min-h-screen bg-background">
-      <Header />
+      {/* <Header /> */}
       <main className="flex-grow">
         <Hero />
         <About />
-        {/* <Projects projects={projects} /> */}
-        <Showcase projects={projects} />
+        <Projects projects={projects} />
+        {/* <Showcase projects={projects} /> */}
         <WhyChooseUs />
         <Testimonials />
         <Stats />
         <Contact />
       </main>
-      <Footer />
+      {/* <Footer projects={projects} /> */}
       <WhatsAppButton />
     </div>
   );
