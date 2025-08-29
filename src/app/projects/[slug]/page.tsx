@@ -93,8 +93,8 @@ export default async function ProjectPage({ params }: ProjectPageParams) {
                 </div>
               </div>
 
-              <div className=" flex items-center mt-10 bg-[#181826]/80 rounded-lg  p-4">
-                <div className="w-[180px] h-full">
+              <div className=" md:flex items-center mt-5 md:mt-10 bg-[#181826]/80 rounded-lg  p-4 ">
+                <div className=" md:w-[180px] md:h-full">
                   <img
                     src={project.acf?.rera_logo || "https://divija.vihaandigitals.com/wp-content/uploads/2025/08/rera-logo-Copy.png"}
                     alt="RERA Logo"
