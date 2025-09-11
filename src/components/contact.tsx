@@ -84,7 +84,7 @@ export default function Contact() {
     <h3 className="text-2xl font-headline font-bold">Our Office</h3>
 
     <div className="flex items-start gap-4">
-      <Building2 className="h-6 w-6 text-primary mt-1" />
+      <Building2 className="h-6 w-6 text-primary mt-1 text-[#da3036]" />
       <div>
         <p className="font-semibold">Divija Developers Headquarters</p>
         <p className="text-muted-foreground">
@@ -94,7 +94,7 @@ export default function Contact() {
     </div>
 
     <div className="flex items-start gap-4">
-      <Mail className="h-6 w-6 text-primary mt-1" />
+      <Mail className="h-6 w-6 text-primary mt-1 text-[#da3036]" />
       <div>
         <p className="font-semibold">Email Us</p>
         <p className="text-muted-foreground">info@divijadevelopers.com</p>
@@ -102,7 +102,7 @@ export default function Contact() {
     </div>
 
     <div className="flex items-start gap-4">
-      <Phone className="h-6 w-6 text-primary mt-1" />
+      <Phone className="h-6 w-6 text-primary mt-1 text-[#da3036]" />
       <div>
         <p className="font-semibold">Call Us</p>
         <p className="text-muted-foreground">+91 6301271539</p>

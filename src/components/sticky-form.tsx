@@ -20,7 +20,7 @@ export default function StickyForm() {
   };
 
   return (
-    <div className="sticky top-24">
+    <div className="">
       <Card>
         <CardHeader>
           <CardTitle>Interested?</CardTitle>
@@ -35,6 +35,7 @@ export default function StickyForm() {
           </form>
         </CardContent>
       </Card>
+   
     </div>
   );
 }

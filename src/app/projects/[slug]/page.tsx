@@ -20,6 +20,7 @@ import { Separator } from '@/components/ui/separator';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { getProjectBySlug } from '@/lib/wordpress';
 import type { Project } from '@/lib/types';
+import LocationSection from '@/components/locationMap';
 
 type ProjectPageParams = {
   params: {
@@ -80,16 +81,21 @@ export default async function ProjectPage({ params }: ProjectPageParams) {
             <div className="container p-6 flex flex-col  items-center justify-center gap-6">
               <div className="flex items-center gap-4 mt-20">
                 <div className="text-cenetr">
-                  <p className="text-orange-400 text-md flex items-center justify-center gap-2">
+                  {/* <p className="text-orange-400 text-md flex items-center justify-center gap-2">
                     <span className="inline-block w-2 h-2 bg-orange-400 rounded-full"></span>
                     {project.acf?.site_location || "Location"}
                   </p>
                   <h3 className="text-white text-4xl font-semibold my-2">
                     {project.title?.rendered}
-                  </h3>
-                  <p className="text-white/80 text-md">
+                  </h3> */}
+                  <img
+                    src={project.acf?.project_logo || "/placeholder.png"}
+                    alt={project.title?.rendered}
+                    className="object-contain w-auto h-auto filter invert brightness-0"
+                  />
+                  {/* <p className="text-white/80 text-md">
                     {project.acf?.sub_title || "18 Acres HMDA Villa Plots."}
-                  </p>
+                  </p> */}
                 </div>
               </div>
 
@@ -172,9 +178,9 @@ export default async function ProjectPage({ params }: ProjectPageParams) {
                     {/* <Home className="h-8 w-8" />  */}
                     Amenities
                   </h2>
-                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 text-center">
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 md:gap-12 text-center">
                     {acf.amenities.map((amenity, index) => (
-                      <div key={index} className="flex flex-col items-center group">
+                      <div key={index} className="flex flex-col items-center group mb-3">
                         <div className="relative w-full aspect-square mb-3 rounded-lg overflow-hidden shadow-lg">
                           <Image
                             src={amenity.add_image || "https://placehold.co/150x150.png"}
@@ -184,7 +190,7 @@ export default async function ProjectPage({ params }: ProjectPageParams) {
                             data-ai-hint="luxury amenity"
                           />
                         </div>
-                        <p className="font-semibold mt-2">{amenity.add_item}</p>
+                        <p className="text-xl font-semibold mt-2">{amenity.add_item}</p>
                       </div>
                     ))}
                   </div>
@@ -210,18 +216,19 @@ export default async function ProjectPage({ params }: ProjectPageParams) {
                 </section>
               )}
 
-              
+
 
               <Separator />
 
-              {(acf.google_map || acf.location_map) && (
+              {(acf.google_map || acf.project_layout) && (
                 <section id="location-map">
-                  <h2 className="text-3xl font-headline font-semibold mb-6">Location Map</h2>
+                  {/* <h2 className="text-3xl font-headline font-semibold mb-6">Location Map</h2> */}
+                  <h2 className="text-3xl font-headline font-semibold mb-6">Loyout & Map</h2>
                   {/* Location Image */}
-                  {acf.location_map && (
+                  {acf.project_layout && (
                     <div className="aspect-video rounded-lg rounded-bl-none rounded-br-none overflow-hidden relative border-t border-r border-l ">
                       <Image
-                        src={acf.location_map || "https://placehold.co/800x600.png"}
+                        src={acf.project_layout || "https://placehold.co/800x600.png"}
                         alt={title.rendered}
                         fill
                         className="object-fit"
@@ -243,9 +250,47 @@ export default async function ProjectPage({ params }: ProjectPageParams) {
 
             </div>
 
-            <div className="hidden lg:block">
-              <StickyForm />
+            <div className="col-span-1">
+              <div className="sticky top-24">
+                <div className="hidden lg:block">
+                  <StickyForm />
+                </div>
+                {/* <h3 className="text-2xl font-semibold mt-6 mb-3 ">Location Map</h3>
+                 {acf.location_map && (
+                    <div className="aspect-video rounded-lg rounded-bl-none rounded-br-none overflow-hidden relative border-t border-r border-l ">
+                      <Image
+                        src={acf.location_map || "https://placehold.co/800x600.png"}
+                        alt={title.rendered}
+                        fill
+                        className="object-fit"
+                        sizes="100vw"
+                        data-ai-hint="location map"
+                      />
+                    </div>
+                  )} */}
+                  <LocationSection acf={acf} title={title}/>
+              </div>
             </div>
+
+            {/* <div className="hidden lg:block">
+              <StickyForm />
+              <h3 className="text-xl font-semibold mb-6">Related Projects</h3>
+
+              <div className="sticky top-12">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
+                  {Array(3).fill(null).map((_, index) => (
+                    <div key={index} className="flex items-center justify-center p-4 border rounded-lg bg-white shadow-sm">
+                      <img
+                        src={project.acf?.project_logo || "/placeholder.png"}
+                        alt={project.title?.rendered || "Project Logo"}
+                        className="object-contain max-h-24 w-auto"
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div> */}
+
           </div>
         </div>
       </main>
