@@ -24,9 +24,12 @@ export default function Header() {
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-6 font-medium">
+          <Link href="/" className="text-foreground/60 hover:text-foreground/80 transition-colors">Home</Link>
           <Link href="/#about" className="text-foreground/60 hover:text-foreground/80 transition-colors">About</Link>
           <Link href="/#projects" className="text-foreground/60 hover:text-foreground/80 transition-colors">Projects</Link>
           <Link href="/#testimonials" className="text-foreground/60 hover:text-foreground/80 transition-colors">Testimonials</Link>
+          <Link href="/gallery" className="text-foreground/60 hover:text-foreground/80 transition-colors">Gallery</Link>
+
         </nav>
 
         {/* Contact Button (Desktop Only) */}

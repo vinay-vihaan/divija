@@ -84,18 +84,18 @@ export default async function ProjectPage({ params }: ProjectPageParams) {
                   {/* <p className="text-orange-400 text-md flex items-center justify-center gap-2">
                     <span className="inline-block w-2 h-2 bg-orange-400 rounded-full"></span>
                     {project.acf?.site_location || "Location"}
-                  </p>
-                  <h3 className="text-white text-4xl font-semibold my-2">
+                  </p> */}
+                  <h3 className="font-headline text-white font-medium text-6xl  my-2">
                     {project.title?.rendered}
-                  </h3> */}
-                  <img
+                  </h3>
+                  {/* <img
                     src={project.acf?.project_logo || "/placeholder.png"}
                     alt={project.title?.rendered}
                     className="object-contain w-auto h-auto filter invert brightness-0"
-                  />
-                  {/* <p className="text-white/80 text-md">
+                  /> */}
+                  <p className="font-merriweather text-white/80 text-2xl">
                     {project.acf?.sub_title || "18 Acres HMDA Villa Plots."}
-                  </p> */}
+                  </p>
                 </div>
               </div>
 
