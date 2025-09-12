@@ -1,7 +1,7 @@
-import type {Metadata} from 'next';
+import type { Metadata } from 'next';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
-import { Poppins, Montserrat  } from "next/font/google";
+import { Poppins, Montserrat, Merriweather } from "next/font/google";
 import Header from '@/components/header';
 import Footer from '@/components/footer';
 
@@ -35,11 +35,15 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap"
+          rel="stylesheet"
+        />
       </head>
       <body className={`font-body antialiased  ${montserrat.variable}`}>
-         <Header />
+        <Header />
         {children}
-          <Footer  />
+        <Footer />
         <Toaster />
       </body>
     </html>

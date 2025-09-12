@@ -13,6 +13,7 @@ export default {
         body: ['Montserrat', 'sans-serif'],
         headline: ['Poppins', 'serif'],
         code: ['monospace'],
+        merriweather: ['sans-serif'],
       },
       colors: {
         background: 'hsl(var(--background))',
