@@ -19,6 +19,8 @@ export interface Project {
     rera_logo: string;
     rera_number: string;
     rera_lp_number: string;
+    project_logo: string;
+    project_layout: string;
   };
   featured_media_src_url?: string;
 _embedded?: {
