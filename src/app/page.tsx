@@ -25,8 +25,9 @@ export default async function Home() {
         <Projects projects={projects} />
         {/* <Showcase projects={projects} /> */}
         <WhyChooseUs />
+           <Stats />
         <Testimonials />
-        <Stats />
+     
         <Contact />
       </main>
       {/* <Footer projects={projects} /> */}
