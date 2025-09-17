@@ -9,7 +9,7 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-secondary px-4">
+    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-white px-4">
       <div className="container flex mx-auto max-w-screen-2xl items-center justify-between py-4">
         {/* Logo */}
         <Link href="/" className="flex items-center space-x-2">

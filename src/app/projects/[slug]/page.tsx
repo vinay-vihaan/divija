@@ -21,6 +21,7 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import { getProjectBySlug } from '@/lib/wordpress';
 import type { Project } from '@/lib/types';
 import LocationSection from '@/components/locationMap';
+import ProjectGallery from '@/components/gallerysection';
 
 type ProjectPageParams = {
   params: {
@@ -109,10 +110,10 @@ export default async function ProjectPage({ params }: ProjectPageParams) {
                 </div>
                 <div className="text-left p-4">
                   <p className="text-white text-md mb-2">
-                    TS RERA: {project.acf?.rera_number || "P02400005008"}
+                    TS RERA: {project.acf?.rera_number || ""}
                   </p>
                   <p className="text-white text-md">
-                    TLP No.: {project.acf?.rera_lp_number || "000224/LO/Plg/HMDA/2022"}
+                    TLP No.: {project.acf?.rera_lp_number || ""}
                   </p>
                 </div>
               </div>
@@ -123,6 +124,27 @@ export default async function ProjectPage({ params }: ProjectPageParams) {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
             <div className="lg:col-span-2 space-y-12">
+
+              {(acf.google_map || acf.project_layout) && (
+                <section id="location-map">
+                  {/* <h2 className="text-3xl font-headline font-semibold mb-6">Location Map</h2> */}
+                  <h2 className="text-3xl font-headline font-semibold mb-6">Project Loyout</h2>
+                  {/* Location Image */}
+                  {acf.project_layout && (
+                    <div className="aspect-video rounded-lg rounded-bl-none rounded-br-none overflow-hidden relative border-t border-r border-l ">
+                      <Image
+                        src={acf.project_layout || "https://placehold.co/800x600.png"}
+                        alt={title.rendered}
+                        fill
+                        className="object-fit"
+                        sizes="100vw"
+                        data-ai-hint="location map"
+                      />
+                    </div>
+                  )}
+                </section>
+              )}
+
               <section id="overview">
                 <h2 className="text-3xl font-headline font-semibold mb-4 flex items-center gap-3">
                   {/* <Building className="h-8 w-8" /> */}
@@ -225,13 +247,13 @@ export default async function ProjectPage({ params }: ProjectPageParams) {
                   {/* <h2 className="text-3xl font-headline font-semibold mb-6">Location Map</h2> */}
                   <h2 className="text-3xl font-headline font-semibold mb-6">Loyout & Map</h2>
                   {/* Location Image */}
-                  {acf.project_layout && (
+                  {acf.location_map && (
                     <div className="aspect-video rounded-lg rounded-bl-none rounded-br-none overflow-hidden relative border-t border-r border-l ">
                       <Image
-                        src={acf.project_layout || "https://placehold.co/800x600.png"}
+                        src={acf.location_map || "https://placehold.co/800x600.png"}
                         alt={title.rendered}
                         fill
-                        className="object-fit"
+                        className="object-contain"
                         sizes="100vw"
                         data-ai-hint="location map"
                       />
@@ -252,7 +274,7 @@ export default async function ProjectPage({ params }: ProjectPageParams) {
 
             <div className="col-span-1">
               <div className="sticky top-24">
-                <div className="hidden lg:block">
+                <div>
                   <StickyForm />
                 </div>
                 {/* <h3 className="text-2xl font-semibold mt-6 mb-3 ">Location Map</h3>
@@ -268,7 +290,8 @@ export default async function ProjectPage({ params }: ProjectPageParams) {
                       />
                     </div>
                   )} */}
-                  <LocationSection acf={acf} title={title}/>
+                  {/* <LocationSection acf={acf} title={title}/> */}
+                   <ProjectGallery acf={acf} title={title} />
               </div>
             </div>
 
