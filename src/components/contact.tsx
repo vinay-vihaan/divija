@@ -59,7 +59,7 @@ export default function Contact() {
         <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-start max-w-6xl mx-auto px-4">
   {/* Form (col-6, centered with col-start-2) */}
   <div className="md:col-span-7 md:col-start-1">
-    <Card>
+    <Card className="bg-white">
       <CardHeader>
         <CardTitle>Get in Touch</CardTitle>
         <CardDescription>

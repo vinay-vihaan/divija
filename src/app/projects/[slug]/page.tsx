@@ -68,7 +68,7 @@ export default async function ProjectPage({ params }: ProjectPageParams) {
 
 
   return (
-    <div className="flex flex-col min-h-screen bg-background">
+    <div className="flex flex-col min-h-screen bg-white">
       {/* <Header /> */}
       <main className="flex-grow pb-4 md:pb-20">
         <div className="relative w-full min-h-[450px] overflow-hidden flex items-center justify-center text-center group mb-20">
