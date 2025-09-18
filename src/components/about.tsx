@@ -81,6 +81,13 @@ export default function About() {
             {/* <h2 className="text-3xl md:text-4xl font-headline font-bold mb-4">About Divija Developers</h2>
              */}
             {/* Fade-in header */}
+             <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
+              className="text-accent text-xl font-semibold mb-2"
+
+            >About us</motion.p>
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -88,7 +95,7 @@ export default function About() {
               // animate only the first time in view
               className="text-3xl md:text-4xl font-headline font-bold mb-4"
             >
-              About Divija Developers
+              Welcome To Divija Developers
             </motion.h2>
             {/* <p className="text-muted-foreground mb-4 leading-relaxed">
               Founded on the principles of innovation, quality, and integrity, Divija Developers has been a pivotal force in shaping modern skylines. We are committed to developing properties that are not only aesthetically pleasing but also sustainable and built to last.

@@ -77,8 +77,8 @@ export default async function ProjectPage({ params }: ProjectPageParams) {
             alt={project.title?.rendered}
             className="absolute inset-0 w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-black/40"></div>
-          <div className="absolute top-0 bottom-0 left-0 w-full bg-black/50 backdrop-blur-sm flex justify-center">
+          {/* <div className="absolute inset-0 bg-black/10"></div> */}
+          <div className="absolute top-0 bottom-0 left-0 w-full bg-black/50  flex justify-center">
             <div className="container p-6 flex flex-col  items-center justify-center gap-6">
               <div className="flex items-center gap-4 mt-20">
                 <div className="text-cenetr">

@@ -25,7 +25,7 @@ export default async function Footer() {
   return (
     <footer className="bg-[#040c27ff]">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-0 lg:gap-8">
           {/* About Section */}
           <div className="md:col-span-1">
             <Link href="/" className="mr-6 flex items-center space-x-2 py-4">
