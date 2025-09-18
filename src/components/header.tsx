@@ -126,7 +126,7 @@ export default function Header() {
         {/* Desktop Contact Button */}
         <div className="hidden md:block">
           <Button asChild>
-            <Link href="#contact">Contact&nbsp;Us</Link>
+            <Link href="/#contact">Contact&nbsp;Us</Link>
           </Button>
         </div>
 
@@ -148,7 +148,7 @@ export default function Header() {
               <MobileLink href="/#testimonials">Testimonials</MobileLink>
               <MobileLink href="/gallery">Gallery</MobileLink>
               <Button asChild>
-                <Link href="#contact" onClick={() => setOpen(false)}>
+                <Link href="/#contact" onClick={() => setOpen(false)}>
                   Contact&nbsp;Us
                 </Link>
               </Button>
