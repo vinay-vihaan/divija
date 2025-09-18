@@ -128,7 +128,7 @@ export default async function ProjectPage({ params }: ProjectPageParams) {
               {(acf.google_map || acf.project_layout) && (
                 <section id="location-map">
                   {/* <h2 className="text-3xl font-headline font-semibold mb-6">Location Map</h2> */}
-                  <h2 className="text-3xl font-headline font-semibold mb-6">Project Loyout</h2>
+                  <h2 className="text-3xl font-headline font-semibold mb-6">Project Layout</h2>
                   {/* Location Image */}
                   {acf.project_layout && (
                     <div className="aspect-video rounded-lg rounded-bl-none rounded-br-none overflow-hidden relative border-t border-r border-l ">
@@ -245,10 +245,12 @@ export default async function ProjectPage({ params }: ProjectPageParams) {
               {(acf.google_map || acf.project_layout) && (
                 <section id="location-map">
                   {/* <h2 className="text-3xl font-headline font-semibold mb-6">Location Map</h2> */}
-                  <h2 className="text-3xl font-headline font-semibold mb-6">Loyout & Map</h2>
+                 
                   {/* Location Image */}
                   {acf.location_map && (
-                    <div className="aspect-video rounded-lg rounded-bl-none rounded-br-none overflow-hidden relative border-t border-r border-l ">
+                    <>
+                     <h2 className="text-3xl font-headline font-semibold mb-6">Location Map</h2>
+                     <div className="aspect-video rounded-lg rounded-bl-none rounded-br-none overflow-hidden relative border-t border-r border-l ">
                       <Image
                         src={acf.location_map || "https://placehold.co/800x600.png"}
                         alt={title.rendered}
@@ -258,15 +260,17 @@ export default async function ProjectPage({ params }: ProjectPageParams) {
                         data-ai-hint="location map"
                       />
                     </div>
+                    </>
+                    
                   )}
 
                   {/* Google Map Embed */}
-                  {acf.google_map && (
+                  {/* {acf.google_map && (
                     <div
                       className="aspect-video rounded-lg overflow-hidden rounded-tl-none rounded-tr-none border-r border-b border-l"
                       dangerouslySetInnerHTML={{ __html: acf.google_map }}
                     />
-                  )}
+                  )} */}
                 </section>
               )}
 

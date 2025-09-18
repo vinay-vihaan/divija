@@ -20,8 +20,8 @@ export default function StickyForm() {
   };
 
   return (
-    <div className="">
-      <Card>
+    <div className="bg-white">
+      <Card className="bg-white">
         <CardHeader>
           <CardTitle>Interested?</CardTitle>
           <CardDescription>Request a callback for more details.</CardDescription>

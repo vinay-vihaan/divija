@@ -184,17 +184,17 @@ import Autoplay from "embla-carousel-autoplay";
 export default function Hero() {
   const slides = [
     {
-      src: "https://divija.vihaandigitals.com/wp-content/uploads/2025/08/ananda-1.png",
+      src: "https://divija.vihaandigitals.com/wp-content/uploads/2025/09/happy-family-123.png",
       title: "Your Vision, Our Foundation",
       desc: "We specialize in turning ambitious architectural dreams into tangible, luxurious realities. Discover the new standard of living with Divija Developers.",
     },
     {
-      src: "https://divija.vihaandigitals.com/wp-content/uploads/2025/08/ananda-2.png",
+      src: "https://divija.vihaandigitals.com/wp-content/uploads/2025/09/banner15.png",
       title: "Crafting Tomorrow’s Landmarks",
       desc: "Our designs blend innovation and elegance, redefining modern living with premium architecture.",
     },
     {
-      src: "https://divija.vihaandigitals.com/wp-content/uploads/2025/08/ananda-3.png",
+      src: "https://divija.vihaandigitals.com/wp-content/uploads/2025/09/flipped-banner.png",
       title: "Luxury That Inspires",
       desc: "Every project is built on trust, precision, and a commitment to excellence.",
     },
@@ -240,13 +240,13 @@ export default function Hero() {
                       priority={i === 0}
                       className="object-cover"
                     />
-                    <div className="absolute inset-0 bg-black/50" />
+                    {/* <div className="absolute inset-0 bg-black/50" /> */}
                   </motion.div>
                 )}
               </AnimatePresence>
 
               {/* Animated text content */}
-              <div className="relative z-10 flex flex-col items-center justify-center h-full text-center p-4">
+              <div className="container relative z-10 flex flex-col items-start justify-center h-full text-start p-4 mx-auto">
                 <AnimatePresence mode="wait">
                   {current === i && (
                     <>
@@ -256,7 +256,7 @@ export default function Hero() {
                         animate={{ y: 0, opacity: 1 }}
                         exit={{ y: -20, opacity: 0 }}
                         transition={{ duration: 0.7, ease: "easeOut" }}
-                        className="text-4xl md:text-6xl lg:text-7xl font-headline font-bold mb-4"
+                        className="text-4xl md:text-6xl lg:text-5xl font-headline font-bold mb-7 max-w-xl text-shadow-black"
                       >
                         {slide.title}
                       </motion.h1>
@@ -267,7 +267,7 @@ export default function Hero() {
                         animate={{ y: 0, opacity: 1 }}
                         exit={{ y: -10, opacity: 0 }}
                         transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-                        className="text-lg md:text-xl mb-8 max-w-2xl mx-auto"
+                        className="text-start text-lg md:text-xl mb-8 max-w-2xl text-shadow-black"
                       >
                         {slide.desc}
                       </motion.p>

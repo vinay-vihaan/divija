@@ -98,6 +98,8 @@ import {
 } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { motion } from "framer-motion";
+import AnimatedHeading from "./animations/AnimatedHeading";
+import { AnimatedParagraph } from "./animations/AnimatedParagraph";
 
 const features = [
   {
@@ -163,13 +165,20 @@ export default function WhyChooseUs() {
     <section id="why-choose-us" className="py-16 md:py-24 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-headline font-bold">
+            <AnimatedHeading as="h2" className="text-3xl md:text-4xl">
+               Why Choose Us
+            </AnimatedHeading>
+          {/* <h2 className="text-3xl md:text-4xl font-headline font-bold">
             Why Choose Us
-          </h2>
-          <p className="text-muted-foreground mt-2 max-w-2xl mx-auto">
+          </h2> */}
+          <AnimatedParagraph>
+             We provide the best quality services and amenities for your dream
+            home.
+          </AnimatedParagraph>
+          {/* <p className="text-muted-foreground mt-2 max-w-2xl mx-auto">
             We provide the best quality services and amenities for your dream
             home.
-          </p>
+          </p> */}
         </div>
 
         <motion.div
@@ -181,8 +190,8 @@ export default function WhyChooseUs() {
         >
           {features.map((feature, index) => (
             <motion.div key={index} variants={item}>
-              <Card className="text-center flex flex-col items-center justify-start p-4 hover:shadow-xl transition-shadow">
-                <CardHeader className="p-2">{feature.icon}</CardHeader>
+              <Card className="group text-center flex flex-col items-center justify-start p-4 hover:shadow-xl transition-shadow">
+                <CardHeader className="transform transition-transform duration-300 group-hover:scale-125 p-2">{feature.icon}</CardHeader>
                 <CardContent className="p-2">
                   <CardTitle className="font-headline text-lg mb-2">
                     {feature.title}

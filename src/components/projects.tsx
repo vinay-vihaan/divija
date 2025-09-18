@@ -83,7 +83,7 @@
 //               initial={{ opacity: 0, y: 20 }}
 //               whileInView={{ opacity: 1, y: 0 }}
 //               transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
-              
+
 //             >
 //           <p className="text-[#cac5c5ff] mt-2 max-w-2xl mx-auto">
 //             Witness the evolution of our signature properties from blueprint to
@@ -159,9 +159,10 @@ const item = {
 
 export default function Showcase({ projects }: ProjectsProps) {
   return (
-    <section
-      id="projects"
-      className="
+    <>
+      <section
+        id="projects"
+        className="
         relative
         py-16 md:py-24
         text-background
@@ -170,72 +171,138 @@ export default function Showcase({ projects }: ProjectsProps) {
         bg-center
         bg-no-repeat
       "
-      style={{
-        backgroundImage:
-          "linear-gradient(rgba(4, 4, 44, 0.8), rgba(4, 4, 44, 0.8)), url('/bg.png')",
-      }}
-    >
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-20">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="text-3xl md:text-4xl font-headline font-bold mb-4"
-          >
-            Ongoing Projects
-          </motion.h2>
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(4, 4, 44, 0.8), rgba(4, 4, 44, 0.8)), url('/bg.png')",
+        }}
+      >
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-20">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="text-3xl md:text-4xl font-headline font-bold mb-4"
+            >
+              Ongoing Projects
+            </motion.h2>
 
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
+            >
+              <p className="text-[#cac5c5ff] mt-2 max-w-2xl mx-auto">
+                Witness the evolution of our signature properties from blueprint
+                to reality.
+              </p>
+            </motion.div>
+          </div>
+
+          {/* --------- Cards with staggered fade-in --------- */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
+            className="grid md:grid-cols-3 gap-8"
+            variants={container}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ amount: 0.2 }} // animate when 20% in view
           >
-            <p className="text-[#cac5c5ff] mt-2 max-w-2xl mx-auto">
-              Witness the evolution of our signature properties from blueprint
-              to reality.
-            </p>
+            {projects.map((project, index) => (
+              <motion.div
+                key={index}
+                variants={item}
+                className="relative w-full min-h-[350px] overflow-hidden flex flex-col items-center justify-center text-center group"
+              >
+                <Link href={`/projects/${project.slug}`} className="group w-full h-full ">
+                  <div className="relative w-full h-full flex flex-col items-center justify-center text-center">
+                    <img
+                      src={
+                        project.acf?.gallery_images?.[0]?.add_image ||
+                        "/placeholder.png"
+                      }
+                      alt={project.title?.rendered}
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-black/40" />
+                    <h2 className="relative text-white text-4xl font-semibold p-4 transition-transform duration-500 group-hover:scale-110">
+                      {project.title?.rendered}
+                    </h2>
+                    <p className="relative text-white/90 text-lg mt-2 transition-transform duration-500 group-hover:scale-110 opacity-90">
+                      {project.acf?.sub_title}
+                    </p>
+                  </div>
+                </Link>
+              </motion.div>
+            ))}
           </motion.div>
         </div>
-
-        {/* --------- Cards with staggered fade-in --------- */}
-        <motion.div
-          className="grid md:grid-cols-3 gap-8"
-          variants={container}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ amount: 0.2 }} // animate when 20% in view
-        >
-          {projects.map((project, index) => (
-            <motion.div
-              key={index}
-              variants={item}
-              className="relative w-full min-h-[350px] overflow-hidden flex flex-col items-center justify-center text-center group"
+      </section>
+      <section
+        id="projects"
+        className=" py-16 md:py-24"
+      >
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-20">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="text-3xl md:text-4xl font-headline font-bold mb-4"
             >
-              <Link href={`/projects/${project.slug}`} className="group w-full h-full ">
-                <div className="relative w-full h-full flex flex-col items-center justify-center text-center">
-                  <img
-                    src={
-                      project.acf?.gallery_images?.[0]?.add_image ||
-                      "/placeholder.png"
-                    }
-                    alt={project.title?.rendered}
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-black/40" />
-                  <h2 className="relative text-white text-4xl font-semibold p-4 transition-transform duration-500 group-hover:scale-110">
-                    {project.title?.rendered}
-                  </h2>
-                  <p className="relative text-white/90 text-lg mt-2 transition-transform duration-500 group-hover:scale-110 opacity-90">
-                    {project.acf?.sub_title}
-                  </p>
-                </div>
-              </Link>
+              Ongoing Projects
+            </motion.h2>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
+            >
+              <p className="text-[#cac5c5ff] mt-2 max-w-2xl mx-auto">
+                Witness the evolution of our signature properties from blueprint
+                to reality.
+              </p>
             </motion.div>
-          ))}
-        </motion.div>
-      </div>
-    </section>
+          </div>
+
+          {/* --------- Cards with staggered fade-in --------- */}
+          <motion.div
+            className="grid md:grid-cols-4 gap-8"
+            variants={container}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ amount: 0.2 }} // animate when 20% in view
+          >
+            {projects.map((project, index) => (
+              <motion.div
+                key={index}
+                variants={item}
+                className="relative w-full min-h-[150px] overflow-hidden flex flex-col items-center justify-center text-center group"
+              >
+                <Link href={`/projects/${project.slug}`} className="group w-full h-full ">
+                  <div className=" w-full h-full flex flex-col items-center justify-center text-center border p-4">
+                      <img
+                      src={
+                        project.acf?.original_logo ||
+                        "/placeholder.png"
+                      }
+                      alt={project.title?.rendered}
+                      className=" w-full h-full object-contain transition-transform duration-500 group-hover:scale-110"
+                    />
+                    {/* <h2 className="relative text-white text-4xl font-semibold p-4 transition-transform duration-500 group-hover:scale-110">
+                      {project.title?.rendered}
+                    </h2>
+                    <p className="relative text-white/90 text-lg mt-2 transition-transform duration-500 group-hover:scale-110 opacity-90">
+                      {project.acf?.sub_title}
+                    </p> */}
+                  </div>
+                </Link>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+    </>
+
   );
 }
 
