@@ -191,7 +191,7 @@ export default function WhyChooseUs() {
           {features.map((feature, index) => (
             <motion.div key={index} variants={item}>
               <Card className="group text-center flex flex-col items-center justify-start p-4 hover:shadow-xl transition-shadow">
-                <CardHeader className="transform transition-transform duration-300 group-hover:scale-125 p-2">{feature.icon}</CardHeader>
+                <CardHeader className="transform transition-transform duration-300 group-hover:scale-125 p-2 ">{feature.icon}</CardHeader>
                 <CardContent className="p-2">
                   <CardTitle className="font-headline text-lg mb-2">
                     {feature.title}

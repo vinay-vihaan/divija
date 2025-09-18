@@ -53,7 +53,7 @@ export default function Cmdmessage() {
                             alt="A modern office interior"
                             data-ai-hint="real estate office"
                             fill
-                            className="rounded-lg object-contain shadow-lg"
+                            className="rounded-lg object-cover shadow-lg"
                         />
                     </div>
                 </div>

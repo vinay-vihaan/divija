@@ -276,7 +276,7 @@ export default function Showcase({ projects }: ProjectsProps) {
               <motion.div
                 key={index}
                 variants={item}
-                className="relative w-full min-h-[150px] overflow-hidden flex flex-col items-center justify-center text-center group"
+                className="relative w-full min-h-[150px] md:min-h-[354px] overflow-hidden flex flex-col items-center justify-center text-center group"
               >
                 <Link href={`/projects/${project.slug}`} className="group w-full h-full ">
                   <div className=" w-full h-full flex flex-col items-center justify-center text-center border p-4">

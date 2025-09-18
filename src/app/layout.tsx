@@ -6,11 +6,11 @@ import Header from '@/components/header';
 import Footer from '@/components/footer';
 
 
-// const poppins = Poppins({
-//   subsets: ["latin"],
-//   weight: ["400", "500", "600", "700"], // choose weights you need
-//   variable: "--font-poppins",
-// });
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"], // choose weights you need
+  variable: "--font-poppins",
+});
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -40,7 +40,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className={`font-body antialiased  ${montserrat.variable}`}>
+      <body className={`font-body antialiased  ${montserrat.variable} ${poppins.variable}`}>
         <Header />
         {children}
         <Footer />
