@@ -85,7 +85,7 @@ export default function Contact() {
 
         
         <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-start max-w-6xl mx-auto p-4 rounded-2xl" style={{
-          backgroundImage: "url('https://divija.vihaandigitals.com/wp-content/uploads/2025/09/bg-edited.png')",
+          backgroundImage: "url('https://divija.vihaandigitals.com/wp-content/uploads/2025/09/bg-blue.png')",
         }}>
           {/* Form (col-6, centered with col-start-2) */}
           <div className="md:col-span-7 md:col-start-1">
@@ -101,7 +101,7 @@ export default function Contact() {
                   <Input placeholder="Your Name" />
                   <Input type="email" placeholder="Your Email" />
                   <Textarea placeholder="Your Message" />
-                  <Button type="submit" className="w-full bg-[#040c27ff]">
+                  <Button type="submit" className="w-full bg-accent">
                     Send Message
                   </Button>
                 </form>

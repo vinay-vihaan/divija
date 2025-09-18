@@ -184,7 +184,7 @@ import Autoplay from "embla-carousel-autoplay";
 export default function Hero() {
   const slides = [
     {
-      src: "https://divija.vihaandigitals.com/wp-content/uploads/2025/09/happy-family-123.png",
+      src: "https://divija.vihaandigitals.com/wp-content/uploads/2025/09/home-banner-25.png",
       title: "Your Vision, Our Foundation",
       desc: "We specialize in turning ambitious architectural dreams into tangible, luxurious realities. Discover the new standard of living with Divija Developers.",
     },
