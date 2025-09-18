@@ -55,13 +55,98 @@ export default function Header() {
           <Link href="/#projects" className="text-foreground/60 hover:text-foreground/80 transition-colors">Projects</Link>
           <Link href="/#testimonials" className="text-foreground/60 hover:text-foreground/80 transition-colors">Testimonials</Link>
           <Button asChild>
-            <Link href="#contact">Contact Us</Link>
+            <Link href="/#contact">Contact Us</Link>
           </Button>
         </nav>
       )}
     </header>
   );
 }
+
+
+// "use client";
+
+// import Link from "next/link";
+// import { Building2, Menu } from "lucide-react";
+// import { Button } from "@/components/ui/button";
+// import {
+//   Sheet,
+//   SheetContent,
+//   SheetTrigger,
+// } from "@/components/ui/sheet";
+// import { useIsMobile } from "@/hooks/use-mobile";
+
+// const navLinks = [
+//   { href: "#about", label: "About" },
+//   { href: "#projects", label: "Projects" },
+//   { href: "#showcase", label: "Showcase" },
+//   { href: "/gallery", label: "Gallery" },
+//   { href: "#testimonials", label: "Testimonials" },
+// ];
+
+// export default function Header() {
+//   const isMobile = useIsMobile();
+
+//   return (
+//     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+//       <div className="container flex h-14 max-w-screen-2xl items-center">
+//         <div className="flex items-center flex-1">
+//           <Link href="/" className="mr-6 flex items-center space-x-2">
+//             <Building2 className="h-6 w-6 text-primary" />
+//             <span className="font-bold font-headline text-lg text-primary">
+//               Divija Developers
+//             </span>
+//           </Link>
+//           {!isMobile && (
+//             <nav className="flex items-center gap-4 text-sm lg:gap-6">
+//               {navLinks.map((link) => (
+//                 <Link
+//                   key={link.href}
+//                   href={link.href}
+//                   className="text-foreground/60 transition-colors hover:text-foreground/80"
+//                 >
+//                   {link.label}
+//                 </Link>
+//               ))}
+//             </nav>
+//           )}
+//         </div>
+//         <div className="flex items-center">
+//           {isMobile ? (
+//             <Sheet>
+//               <SheetTrigger asChild>
+//                 <Button variant="outline" size="icon">
+//                   <Menu className="h-6 w-6" />
+//                 </Button>
+//               </SheetTrigger>
+//               <SheetContent side="left">
+//                 <nav className="grid gap-6 text-lg font-medium">
+//                   {navLinks.map((link) => (
+//                     <Link
+//                       key={link.href}
+//                       href={link.href}
+//                       className="text-foreground/60 transition-colors hover:text-foreground/80"
+//                     >
+//                       {link.label}
+//                     </Link>
+//                   ))}
+//                   <Button asChild>
+//                     <Link href="#contact">Contact Us</Link>
+//                   </Button>
+//                 </nav>
+//               </SheetContent>
+//             </Sheet>
+//           ) : (
+//             <Button asChild>
+//               <Link href="#contact">Contact Us</Link>
+//             </Button>
+//           )}
+//         </div>
+//       </div>
+//     </header>
+//   );
+// }
+
 
 // "use client"
 // import Link from "next/link";

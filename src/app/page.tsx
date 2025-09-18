@@ -11,6 +11,7 @@ import Footer from '@/components/footer';
 import Contact from '@/components/contact';
 import { getProjects } from '@/lib/api';
 import Projects from '@/components/projects';
+import Cmdmessage from '@/components/cmdmessage';
 
 
 export default async function Home() {
@@ -22,10 +23,12 @@ export default async function Home() {
       <main className="flex-grow">
         <Hero />
         <About />
+        <Stats />
+        <Cmdmessage/>
         <Projects projects={projects} />
         {/* <Showcase projects={projects} /> */}
         <WhyChooseUs />
-           <Stats />
+           
         <Testimonials />
      
         <Contact />

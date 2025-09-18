@@ -50,20 +50,45 @@ export default function Stats() {
   }, []);
 
   return (
-    <section ref={ref} className="py-16 md:py-24 bg-white">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-          {stats.map((stat, index) => (
-            <div key={index} className="flex flex-col items-center">
-              {stat.icon}
-              <p className="text-4xl md:text-5xl font-bold font-headline text-primary mt-4">
-                {isVisible ? <AnimatedCounter end={stat.value} /> : 0}+
-              </p>
-              <p className="text-muted-foreground mt-2">{stat.label}</p>
-            </div>
-          ))}
+    // <section ref={ref} className="relative py-8 md:py-10 bg-white"  style={{
+    //       backgroundImage: "url('/stats-bg-2.png')",
+    //     }}>
+    //       <div className="absolute "></div>
+    //   <div className="container mx-auto px-4">
+    //     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+    //       {stats.map((stat, index) => (
+    //         <div key={index} className="flex flex-col items-center">
+    //           {/* {stat.icon} */}
+    //           <p className="text-4xl md:text-5xl font-bold font-headline text-white mt-4">
+    //             {isVisible ? <AnimatedCounter end={stat.value} /> : 0}+
+    //           </p>
+    //           <p className="text-muted-foreground mt-2">{stat.label}</p>
+    //         </div>
+    //       ))}
+    //     </div>
+    //   </div>
+    // </section>
+    <section
+  ref={ref}
+  className="relative py-8 md:py-10 bg-cover bg-center"
+  style={{ backgroundImage: "url('https://divija.vihaandigitals.com/wp-content/uploads/2025/09/stats-bg-234.png')" }}
+>
+  {/* Transparent color overlay */}
+  <div className="absolute inset-0 bg-black/80"></div>
+
+  <div className="container relative z-10 mx-auto px-4">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+      {stats.map((stat, index) => (
+        <div key={index} className="flex flex-col items-center">
+          <p className="text-4xl md:text-5xl font-bold font-headline text-white mt-4">
+            {isVisible ? <AnimatedCounter end={stat.value} /> : 0}+
+          </p>
+          <p className="text-gray-200 mt-2">{stat.label}</p>
         </div>
-      </div>
-    </section>
+      ))}
+    </div>
+  </div>
+</section>
+
   );
 }
