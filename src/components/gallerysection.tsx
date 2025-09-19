@@ -78,15 +78,15 @@ export default function ProjectGallery({ acf, title }: ProjectGalleryProps) {
                                     className="object-contain"
                                     sizes="100vw"
                                 />
-                                <div className="absolute bottom-5 left-0 right-0 mx-auto py-2 text-center text-sm text-black z-10">
+                                {/* <div className="absolute bottom-5 left-0 right-0 mx-auto py-2 text-center text-sm text-black z-10">
                                     Image {current} of {count}
-                                </div>
+                                </div> */}
                             </div>
                         </CarouselItem>
                     ))}
                 </CarouselContent>
-                <CarouselPrevious className="absolute md:-left-5 top-1/2 -translate-y-1/2 z-10" />
-                <CarouselNext className="absolute md:-right-5 top-1/2 -translate-y-1/2 z-10" />
+                {/* <CarouselPrevious className="absolute md:-left-5 top-1/2 -translate-y-1/2 z-10" />
+                <CarouselNext className="absolute md:-right-5 top-1/2 -translate-y-1/2 z-10" /> */}
             </Carousel>
 
             {/* Thumbnail carousel */}
@@ -122,6 +122,8 @@ export default function ProjectGallery({ acf, title }: ProjectGalleryProps) {
                         </CarouselItem>
                     ))}
                 </CarouselContent>
+                <CarouselPrevious className="absolute md:-left-5 top-1/2 -translate-y-1/2 z-10" />
+                <CarouselNext className="absolute md:-right-5 top-1/2 -translate-y-1/2 z-10" />
             </Carousel>
 
             {lightboxOpen && images.length > 0 && (

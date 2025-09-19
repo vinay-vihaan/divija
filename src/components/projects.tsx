@@ -227,7 +227,7 @@ export default function Showcase({ projects }: ProjectsProps) {
                     <h2 className="relative text-white text-4xl font-semibold p-4 transition-transform duration-500 group-hover:scale-110">
                       {project.title?.rendered}
                     </h2>
-                    <p className="relative text-white/90 text-lg mt-2 transition-transform duration-500 group-hover:scale-110 opacity-90">
+                    <p className="relative text-white/90 text-lg mt-1 transition-transform duration-500 group-hover:scale-110 opacity-90">
                       {project.acf?.sub_title}
                     </p>
                   </div>
