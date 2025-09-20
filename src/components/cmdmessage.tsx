@@ -46,7 +46,7 @@ export default function Cmdmessage({ cmdMessage }: Cmdmessage) {
                         </motion.div>
                     </div>
 
-                    <div className="relative w-[100%] lg:w-[85%] h-[629px]">
+                    <div className="relative w-[100%] h-[629px]">
                         {
                             cmdMessage?.image && (
                                 <>
