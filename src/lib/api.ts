@@ -1,5 +1,5 @@
 // lib/api.ts
-import { Project } from "@/lib/types";
+import { Homepage, Project } from "@/lib/types";
 
 export async function getProjects(): Promise<Project[]> {
   const res = await fetch("https://divija.vihaandigitals.com/wp-json/wp/v2/project?acf_format=standard", {
@@ -13,33 +13,29 @@ export async function getProjects(): Promise<Project[]> {
   return res.json();
 }
 
-// export async function fetchGalleryData() {
-//   // Get all gallery posts
-//   const res = await fetch("https://divija.vihaandigitals.com/wp-json/wp/v2/gallery");
-//   const galleries = await res.json();
 
-//   // For each gallery, fetch attached images
-//   const galleryWithImages = await Promise.all(
-//     galleries.map(async (gallery: any) => {
-//       const attachmentsRes = await fetch(
-//         `https://divija.vihaandigitals.com/wp-json/wp/v2/media?parent=${gallery.id}`
-//       );
-//       const attachments = await attachmentsRes.json();
+// export async function getHomePage(): Promise<Homepage[]> {
+//   const res = await fetch("https://divija.vihaandigitals.com/wp-json/wp/v2/home-page?acf_format=standard", {
+//     next: { revalidate: 60 }, // ISR (revalidate every 60s)
+//   });
 
-//       return {
-//         category: gallery.title.rendered,
-//         images: attachments.map((img: any) => ({
-//           src: img.source_url,
-//           alt: img.alt_text || img.title.rendered,
-//           hint: img.caption?.rendered || "",
-//           category: gallery.title.rendered,
-//         })),
-//       };
-//     })
-//   );
+//   if (!res.ok) {
+//     throw new Error("Failed to fetch projects");
+//   }
 
-//   return galleryWithImages;
+//   return res.json();
 // }
+
+export const getHomePage = async (): Promise<Homepage | null> => {
+  const res = await fetch("https://divija.vihaandigitals.com/wp-json/wp/v2/home-page?acf_format=standard");
+  if (!res.ok) return null;
+  const data: Homepage[] = await res.json();
+  return data?.[0] ?? null;
+};
+
+
+
+
 
 export type ImageType = {
   src: string;
@@ -78,3 +74,6 @@ export async function fetchGalleryData(): Promise<GalleryGroup[]> {
     };
   });
 }
+
+
+
