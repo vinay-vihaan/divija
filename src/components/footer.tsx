@@ -48,7 +48,7 @@ export default async function Footer() {
             <ul className="space-y-2">
               {Array.isArray(projects) && projects?.map((project, index) => (
                 <li key={index}>
-                  <Link href="/#projects"  className="text-sm text-white hover:text-primary transition-colors">
+                  <Link href={`/projects/${project?.slug}`}  className="text-sm text-white hover:text-primary transition-colors">
                     {project.title?.rendered}
                   </Link>
                 </li>

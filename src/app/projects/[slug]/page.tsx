@@ -13,6 +13,7 @@ import {
   School,
   ShoppingBag,
   CheckCircle,
+  FileText,
 } from "lucide-react";
 import { notFound } from 'next/navigation';
 import StickyForm from '@/components/sticky-form';
@@ -22,6 +23,8 @@ import { getProjectBySlug } from '@/lib/wordpress';
 import type { Project } from '@/lib/types';
 import LocationSection from '@/components/locationMap';
 import ProjectGallery from '@/components/gallerysection';
+import { Button } from '@/components/ui/button';
+import BrochureDownload from '@/components/brochureDownload';
 
 type ProjectPageParams = {
   params: {
@@ -281,6 +284,7 @@ export default async function ProjectPage({ params }: ProjectPageParams) {
                 <div>
                   <StickyForm />
                 </div>
+                {/* <BrochureDownload acf={project.acf} /> */}
                 {/* <h3 className="text-2xl font-semibold mt-6 mb-3 ">Location Map</h3>
                  {acf.location_map && (
                     <div className="aspect-video rounded-lg rounded-bl-none rounded-br-none overflow-hidden relative border-t border-r border-l ">
