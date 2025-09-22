@@ -8,7 +8,7 @@ interface AboutSection {
   aboutSection?: Homepage["acf"]["about_section"]; // optional
 }
 
-export default function About({aboutSection}:AboutSection) {
+export default function About({ aboutSection }: AboutSection) {
 
   return (
     <section id="about" className="py-16 md:py-24 bg-white">
@@ -56,15 +56,15 @@ export default function About({aboutSection}:AboutSection) {
                 // viewport={{ once: true }}
                 className="w-full md:w-1/2"
               >
-               {aboutSection?.image1 &&
-                ( <Image
-                  src={aboutSection?.image1}
-                  alt="A modern office interior"
-                  width={600}
-                  height={400}
-                  className="rounded-lg shadow-lg object-cover w-full h-auto"
-                />)
-               }
+                {aboutSection?.image1 &&
+                  (<Image
+                    src={aboutSection?.image1}
+                    alt="A modern office interior"
+                    width={600}
+                    height={400}
+                    className="rounded-lg shadow-lg object-cover w-full h-auto"
+                  />)
+                }
               </motion.div>
 
               {/* Second image */}
@@ -76,14 +76,14 @@ export default function About({aboutSection}:AboutSection) {
                 className="w-full md:w-1/2 pt-12"
               >
                 {aboutSection?.image1 &&
-                ( <Image
-                  src={aboutSection?.image2}
-                  alt="A modern office interior"
-                  width={600}
-                  height={400}
-                  className="rounded-lg shadow-lg object-cover w-full h-auto"
-                />)
-               }
+                  (<Image
+                    src={aboutSection?.image2}
+                    alt="A modern office interior"
+                    width={600}
+                    height={400}
+                    className="rounded-lg shadow-lg object-cover w-full h-auto"
+                  />)
+                }
                 {/* <Image
                   src="https://divija.vihaandigitals.com/wp-content/uploads/2025/09/about-animate2.png"
                   alt="A modern office interior"
@@ -98,7 +98,7 @@ export default function About({aboutSection}:AboutSection) {
             {/* <h2 className="text-3xl md:text-4xl font-headline font-bold mb-4">About Divija Developers</h2>
              */}
             {/* Fade-in header */}
-             <motion.p
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
@@ -120,23 +120,36 @@ export default function About({aboutSection}:AboutSection) {
             <p className="text-muted-foreground leading-relaxed">
               Our team of seasoned architects, engineers, and designers work in synergy to bring landmark projects to life, ensuring every detail reflects our commitment to excellence. We believe in building more than just structures; we build communities and legacies.
             </p> */}
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
               className="text-muted-foreground mb-4 leading-relaxed"
-
+              dangerouslySetInnerHTML={{ __html: aboutSection?.description }}
             >
-              {/* <p > */}
-               {aboutSection?.description}
-              {/* </p> */}
-              {/* <p className="text-muted-foreground leading-relaxed">
+              <p > 
+                {aboutSection?.description} 
+               
+            </p> 
+            <p className="text-muted-foreground leading-relaxed">
                 Our team of seasoned architects, engineers, and designers work in
                 synergy to bring landmark projects to life, ensuring every detail
                 reflects our commitment to excellence. We believe in building more
                 than just structures; we build communities and legacies.
-              </p> */}
-            </motion.div>
+              </p> 
+            </motion.div> */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
+              className="mb-4 leading-relaxed text-muted-foreground"
+              dangerouslySetInnerHTML={
+                aboutSection?.description
+                  ? { __html: aboutSection.description }
+                  : undefined
+              }
+            />
+
           </div>
         </div>
       </div>

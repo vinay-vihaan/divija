@@ -32,10 +32,17 @@ export default function Cmdmessage({ cmdMessage }: Cmdmessage) {
                             transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
 
                         >
-                            <p className="text-muted-foreground mb-4 leading-relaxed mb-8">
+                            {/* <p className="text-muted-foreground mb-4 leading-relaxed mb-8">
                                 {cmdMessage?.cmd_description}
-                            </p>
-                            <p className="font-semibold leading-relaxed text-xl text-accent">
+                            </p> */}
+                            <div className="text-muted-foreground mb-4 leading-relaxed mb-8" dangerouslySetInnerHTML={
+                                cmdMessage?.cmd_description
+                                    ? { __html: cmdMessage?.cmd_description }
+                                    : undefined
+                            }>
+                                {/* {cmdMessage?.cmd_description} */}
+                            </div>
+                            <p className="font-semibold leading-relaxed text-xl text-accent font-italic">
 
                                 {cmdMessage?.name}
                             </p>
