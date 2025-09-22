@@ -71,9 +71,9 @@ export default function Testimonials({testimonials}:Testimonials) {
             {testimonials?.map((t, i) => (
               <CarouselItem key={i} className="md:basis-1/2 lg:basis-1/3">
                 <div className="p-1 h-full">
-                  <Card className="h-full flex flex-col bg-white backdrop-blur-sm shadow-xl">
+                  <Card className="h-full flex flex-col bg-white backdrop-blur-sm shadow-xl pt-5">
                     <CardContent className="flex-grow flex flex-col items-center text-center p-6">
-                      <Avatar className="w-20 h-20 mb-4">
+                      {/* <Avatar className="w-20 h-20 mb-4">
                         <AvatarImage
                           src={t?.profile_image}
                           alt={t.name}
@@ -82,7 +82,7 @@ export default function Testimonials({testimonials}:Testimonials) {
                         <AvatarFallback>
                           {t?.name.charAt(0)}
                         </AvatarFallback>
-                      </Avatar>
+                      </Avatar> */}
                       <p className="text-muted-foreground italic mb-4">
                         "{t.quote}"
                       </p>

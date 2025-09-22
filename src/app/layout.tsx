@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
-import { Poppins, Montserrat, Merriweather } from "next/font/google";
+import { Poppins, Montserrat, Merriweather, Playfair_Display } from "next/font/google";
 import Header from '@/components/header';
 import Footer from '@/components/footer';
 
@@ -16,6 +16,12 @@ const montserrat = Montserrat({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-montserrat",
+});
+
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  weight: ['400', '600', '700'], // choose weights you need
+  variable: '--font-playfair', 
 });
 
 export const metadata: Metadata = {
@@ -40,7 +46,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className={`font-body antialiased  ${montserrat.variable} ${poppins.variable}`}>
+      <body className={`font-body antialiased  ${montserrat.variable} ${poppins.variable} ${playfair.variable}`}>
         <Header />
         {children}
         <Footer />
