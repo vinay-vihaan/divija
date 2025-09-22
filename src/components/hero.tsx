@@ -31,7 +31,7 @@ export default function Hero({heroSection}:HeroProps) {
   }, [api]);
 
   return (
-    <section className="relative h-[60vh] md:h-[80vh] w-full text-white overflow-hidden">
+    <section className="relative h-[80vh] md:h-[90vh] w-full text-white overflow-hidden">
       <Carousel
         className="h-full"
         opts={{ loop: true }}
@@ -40,7 +40,7 @@ export default function Hero({heroSection}:HeroProps) {
       >
         <CarouselContent className="h-full">
           {heroSection?.map((slide, i) => (
-            <CarouselItem key={i} className="relative h-[60vh] md:h-[80vh]">
+            <CarouselItem key={i} className="relative h-[80vh] md:h-[90vh]">
               {/* Animated background image */}
               <AnimatePresence mode="wait">
                 {current === i && (
@@ -57,7 +57,14 @@ export default function Hero({heroSection}:HeroProps) {
                       alt={slide.tittle}
                       fill
                       priority={i === 0}
-                      className="object-cover"
+                      className="object-cover object-[right_center] h-full w-full hidden md:block"
+                    />
+                      <Image
+                      src={slide?.mobile_view}
+                      alt={slide.tittle}
+                      fill
+                      priority={i === 0}
+                      className="object-cover object-[right_center] h-full w-full block md:hidden"
                     />
                     {/* <div className="absolute inset-0 bg-black/50" /> */}
                   </motion.div>

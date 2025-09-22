@@ -160,7 +160,7 @@ const item = {
 export default function Showcase({ projects }: ProjectsProps) {
   return (
     <>
-      <section
+      {/* <section
         id="projects"
         className="
         relative
@@ -199,7 +199,7 @@ export default function Showcase({ projects }: ProjectsProps) {
             </motion.div>
           </div>
 
-          {/* --------- Cards with staggered fade-in --------- */}
+        
           <motion.div
             className="grid md:grid-cols-3 gap-8"
             variants={container}
@@ -214,7 +214,7 @@ export default function Showcase({ projects }: ProjectsProps) {
                 className="relative w-full min-h-[350px] overflow-hidden flex flex-col items-center justify-center text-center group"
               >
                 <Link href={`/projects/${project.slug}`} className="group w-full h-full ">
-                  <div className="relative w-full h-full flex flex-col items-center justify-center text-center">
+                  <div className="relative w-full h-full flex flex-col items-center justify-center text-center px-4">
                     <img
                       src={
                         project.acf?.gallery_images?.[0]?.add_image ||
@@ -224,24 +224,26 @@ export default function Showcase({ projects }: ProjectsProps) {
                       className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-black/40" />
-                    {/* <h2 className="relative text-white text-4xl font-semibold p-4 transition-transform duration-500 group-hover:scale-110">
+                   <h2 className="relative text-white text-4xl font-semibold p-4 transition-transform duration-500 group-hover:scale-110">
                       {project.title?.rendered}
                     </h2>
                     <p className="relative text-white/90 text-lg mt-1 transition-transform duration-500 group-hover:scale-110 opacity-90">
                       {project.acf?.sub_title}
-                    </p> */}
-                     <img
+                    </p> 
+                   <div className="bg-white">
+                      <img
                     src={project.acf?.original_logo || "/placeholder.png"}
                     alt={project.title?.rendered}
-                    className="object-contain w-auto h-auto filter invert brightness-0"
+                    className="object-contain w-auto h-auto brightness-100 bg-white"
                   />
+                   </div>
                   </div>
                 </Link>
               </motion.div>
             ))}
           </motion.div>
         </div>
-      </section>
+      </section> */}
       <section
         id="projects"
         className=" py-16 md:py-24"
