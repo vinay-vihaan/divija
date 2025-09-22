@@ -42,7 +42,7 @@ export default function Cmdmessage({ cmdMessage }: Cmdmessage) {
                             }>
                                 {/* {cmdMessage?.cmd_description} */}
                             </div>
-                            <p className="font-semibold leading-relaxed text-xl  italic">
+                            <p className="font-playfair font-bold lead text-xl font-semibold font-cursive ">
 
                                 {cmdMessage?.name}
                             </p>
@@ -64,9 +64,8 @@ export default function Cmdmessage({ cmdMessage }: Cmdmessage) {
                                         fill
                                         className="rounded-lg w-full h-full"
                                     />
-                                    <div className="absolute font-semibold h-[90px] w-[90px] md:w-[120px] md-h[120px] lg:w-[180px] lg:h-[180px] top-5 left-3 md:left-10 p-10">
-                                        {/* 18+ YEARS OF <br />
-                                        EXPERIENCE */}
+                                    {/* <div className="absolute font-semibold h-[90px] w-[90px] md:w-[120px] md-h[120px] lg:w-[180px] lg:h-[180px] bottom-5 left-3 md:left-10 p-10">
+                                       
                                          <Image
                                         src="https://divija.vihaandigitals.com/wp-content/uploads/2025/09/bg-removed-2.png"
                                         alt={cmdMessage?.name}
@@ -74,7 +73,11 @@ export default function Cmdmessage({ cmdMessage }: Cmdmessage) {
                                         fill
                                         className="rounded-lg object-cover"
                                     />
-                                    </div>  
+                                    </div>   */}
+                                      <div className="absolute font-bold rounded-lg bg-white bottom-2 md:bottom-10 -left-3 md:-left-10 px-5 py-2 md:px-10 md:py-5 shadow-lg shadow-blue-500/50 border border-black">
+                                        18+ YEARS OF <br />
+                                        EXPERIENCE
+                                    </div>
                                 </>
                             )
                         }

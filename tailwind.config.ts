@@ -14,6 +14,7 @@ export default {
         headline: ['Poppins', 'serif'],
         code: ['monospace'],
         merriweather: ['sans-serif'],
+        playfair: ["Playfair Display", 'serif'],
       },
       colors: {
         background: 'hsl(var(--background))',
