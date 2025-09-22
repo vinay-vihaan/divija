@@ -47,6 +47,7 @@ export interface Homepage {
       first_image: string;
       tittle: string;
       description: string;
+      mobile_view:string;
     }[];
     about_section: { // About section
       image1: string;

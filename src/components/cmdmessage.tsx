@@ -42,7 +42,7 @@ export default function Cmdmessage({ cmdMessage }: Cmdmessage) {
                             }>
                                 {/* {cmdMessage?.cmd_description} */}
                             </div>
-                            <p className="font-semibold leading-relaxed text-xl text-accent font-italic">
+                            <p className="font-semibold leading-relaxed text-xl  italic">
 
                                 {cmdMessage?.name}
                             </p>
@@ -53,7 +53,7 @@ export default function Cmdmessage({ cmdMessage }: Cmdmessage) {
                         </motion.div>
                     </div>
 
-                    <div className="relative w-[100%] h-[629px]">
+                    <div className="relative w-[100%] h-[350px] md:h-[629px]">
                         {
                             cmdMessage?.image && (
                                 <>
@@ -62,12 +62,19 @@ export default function Cmdmessage({ cmdMessage }: Cmdmessage) {
                                         alt={cmdMessage?.name}
                                         data-ai-hint="real estate office"
                                         fill
-                                        className="rounded-lg object-cover shadow-lg"
+                                        className="rounded-lg w-full h-full"
                                     />
-                                    <div className="absolute text-white font-semibold rounded-lg bg-accent bottom-10 -left-10 p-10">
-                                        18+ YEARS OF <br />
-                                        EXPERIENCE
-                                    </div>
+                                    <div className="absolute font-semibold h-[90px] w-[90px] md:w-[120px] md-h[120px] lg:w-[180px] lg:h-[180px] top-5 left-3 md:left-10 p-10">
+                                        {/* 18+ YEARS OF <br />
+                                        EXPERIENCE */}
+                                         <Image
+                                        src="https://divija.vihaandigitals.com/wp-content/uploads/2025/09/bg-removed-2.png"
+                                        alt={cmdMessage?.name}
+                                        data-ai-hint="real estate office"
+                                        fill
+                                        className="rounded-lg object-cover"
+                                    />
+                                    </div>  
                                 </>
                             )
                         }
