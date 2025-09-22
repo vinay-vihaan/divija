@@ -124,11 +124,12 @@ export default function About({aboutSection}:AboutSection) {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
+              className="text-muted-foreground mb-4 leading-relaxed"
 
             >
-              <p className="text-muted-foreground mb-4 leading-relaxed">
+              {/* <p > */}
                {aboutSection?.description}
-              </p>
+              {/* </p> */}
               {/* <p className="text-muted-foreground leading-relaxed">
                 Our team of seasoned architects, engineers, and designers work in
                 synergy to bring landmark projects to life, ensuring every detail
