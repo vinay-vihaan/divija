@@ -262,7 +262,8 @@ export default function Contact() {
                 <form className="space-y-4">
                   <Input placeholder="Your Name" />
                   <Input type="email" placeholder="Your Email" />
-                  <Textarea placeholder="Your Message" />
+                  <Input type="mobile" placeholder="Your Mobile Number" />
+                  {/* <Textarea placeholder="Your Message" /> */}
                   <Button type="submit" className="w-full bg-accent hover:bg-accent/80">
                     Send Message
                   </Button>
