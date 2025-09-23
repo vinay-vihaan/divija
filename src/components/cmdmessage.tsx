@@ -74,10 +74,10 @@ export default function Cmdmessage({ cmdMessage }: Cmdmessage) {
                                         className="rounded-lg object-cover"
                                     />
                                     </div>   */}
-                                      <div className="absolute font-bold rounded-lg bg-white bottom-2 md:bottom-10 -left-3 md:-left-10 px-5 py-2 md:px-10 md:py-5 shadow-lg shadow-blue-500/50 border border-black">
+                                      {/* <div className="absolute font-bold rounded-lg bg-white bottom-2 md:bottom-10 -left-3 md:-left-10 px-5 py-2 md:px-10 md:py-5 shadow-lg shadow-blue-500/50 border border-black">
                                         18+ YEARS OF <br />
                                         EXPERIENCE
-                                    </div>
+                                    </div> */}
                                 </>
                             )
                         }
